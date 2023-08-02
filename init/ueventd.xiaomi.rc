@@ -3,6 +3,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Lineage Charger
+/sys/class/qcom-battery   night_charging  0660  system  system
+
 # xiaomi display feature
 subsystem mi_display
     devname uevent_devpath

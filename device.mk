@@ -262,6 +262,10 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.keystore_desede=true
 
+# Lineage Health
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
+
 # Media
 PRODUCT_ODM_PROPERTIES += \
     debug.config.media.video.dolby_vision_suports=true \
