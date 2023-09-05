@@ -17,6 +17,13 @@ prebuilt_etc {
     vendor: true,
 }
 
+prebuilt_etc {
+    name: "init.xiaomi.rc",
+    src: "init.xiaomi.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
 cc_library_static {
     name: "libinit_onyx",
     srcs: ["init_onyx.cpp"],
