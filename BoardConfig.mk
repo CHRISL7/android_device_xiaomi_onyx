@@ -62,6 +62,9 @@ TARGET_SCREEN_DENSITY := 560
 # DTB
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
+# Filesystem
+TARGET_FS_CONFIG_GEN += $(DEVICE_PATH)/configs/config.fs
+
 # Kernel
 BOARD_BOOTCONFIG := \
     androidboot.console=0 \
@@ -130,6 +133,9 @@ BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_F2FS := true
+
+# RIL
+SOONG_CONFIG_rfs_mpss_firmware_symlink_target := modem_firmware
 
 # SELinux
 include device/xiaomi/sepolicy/SEPolicy.mk
