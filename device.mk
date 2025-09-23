@@ -263,6 +263,10 @@ TARGET_COMMON_QTI_COMPONENTS := \
     wfd \
     wlan
 
+# Parts
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.xiaomi-multihal \
