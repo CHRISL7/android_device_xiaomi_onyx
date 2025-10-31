@@ -94,6 +94,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_VENDOR_PROPERTIES += \
     ro.incremental.enable=yes
 
+# Init
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.target.rc
+
 # Kernel Binary
 KERNEL_PREBUILT_DIR := device/xiaomi/onyx-kernel
 
