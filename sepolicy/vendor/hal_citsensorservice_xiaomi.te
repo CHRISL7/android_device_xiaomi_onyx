@@ -1,0 +1,6 @@
+allow vendor_hal_citsensorservice_xiaomi_default hal_hypsys_vendor_service:service_manager { add find };
+allow vendor_hal_citsensorservice_xiaomi_default hal_hypsys_vendor:binder { call transfer };
+allow vendor_hal_citsensorservice_xiaomi_default sysfs_tp_fodstatus:file { open read };
+dontaudit vendor_hal_citsensorservice_xiaomi_default system_prop:file read;
+
+get_prop(vendor_hal_citsensorservice_xiaomi_default, vendor_qc_aon_prop)

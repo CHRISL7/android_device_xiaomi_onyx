@@ -1,0 +1,13 @@
+# Fingerprint
+vendor.xiaomi.hardware.fx.tunnel.IMiFxTunnel/default                    u:object_r:vendor_hal_fingerprint_service_xiaomi:s0
+
+# HypSys
+xiaomi.system.hypsys.common.IHypSysSsi/default            u:object_r:hal_hypsys_vendor_service:s0
+xiaomi.system.hypsys.common.IHypSysSsiIntl/default            u:object_r:hal_hypsys_vendor_service:s0
+
+# Media
+android.hardware.media.c2.IComponentStore/xiaomi                   u:object_r:hal_codec2_service:s0
+vendor.xiaomi.hardware.mediaeventgatherservice.IMediaGather/default                       u:object_r:hal_mediaeventgatherservice_service:s0
+
+# SLA
+vendor.qti.sla.service.ISlaAIDLService/default u:object_r:hal_slaaidlservice_service:s0

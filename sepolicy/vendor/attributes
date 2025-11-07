@@ -1,0 +1,13 @@
+# Camera
+attribute vendor_hal_misensor_camera;
+attribute vendor_hal_misensor_camera_client;
+attribute vendor_hal_misensor_camera_server;
+
+# Charge
+hal_attribute(micharge)
+
+# Hypsys
+attribute hal_hypsys_vendor_service_client;
+
+# SLA
+hal_attribute(slaaidlservice)

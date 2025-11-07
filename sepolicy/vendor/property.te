@@ -1,0 +1,6 @@
+# Fingerprint
+vendor_public_prop(vendor_fp_prop)
+vendor_restricted_prop(vendor_fp_info_prop)
+
+# SLA
+vendor_public_prop(vendor_slad_prop)

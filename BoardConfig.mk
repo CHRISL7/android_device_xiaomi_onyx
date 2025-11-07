@@ -139,6 +139,10 @@ SOONG_CONFIG_rfs_mpss_firmware_symlink_target := modem_firmware
 
 # SELinux
 include device/xiaomi/sepolicy/SEPolicy.mk
+BOARD_ODM_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/odm
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 
 # Verified Boot
 BOARD_AVB_ENABLE := true

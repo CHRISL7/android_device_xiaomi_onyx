@@ -1,0 +1,2 @@
+allow vendor_touch_init_shell kernel:system syslog_read;
+allow vendor_touch_init_shell kmsg_device:chr_file { open read };

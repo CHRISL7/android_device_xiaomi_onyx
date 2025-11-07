@@ -1,0 +1,5 @@
+# Charge
+type vendor_charge_block_device, dev_type;
+
+# Fingerprint
+type vendor_fingerprint_device, dev_type;

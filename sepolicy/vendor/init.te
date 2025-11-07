@@ -1,0 +1,10 @@
+# Fingerprint
+set_prop(vendor_init, vendor_fp_prop)
+set_prop(vendor_init, vendor_fp_info_prop)
+
+# SLA
+allow init slad_exec:file { getattr open read };
+allow init sla_data_file:file rw_file_perms;
+
+set_prop(vendor_init, vendor_camera_prop)
+set_prop(vendor_init, vendor_radio_prop)

@@ -1,0 +1,25 @@
+# Camera
+type vendor_aon_vendor_data_file, data_file_type, file_type;
+type sysfs_csiphy_umd_paras, fs_type, sysfs_type;
+
+# Charging
+type vendor_sysfs_xm_power, fs_type, sysfs_type;
+
+# Fingerprint
+type sysfs_tp_fodstatus, fs_type, sysfs_type;
+type vendor_fingerprint_data_file, data_file_type, file_type;
+type vendor_fingerprint_data_file_fpdump, data_file_type, file_type;
+
+# Info
+type vendor_sysfs_hardwareinfo, fs_type, sysfs_type;
+
+# Metis/Migt
+type sysfs_migt, fs_type, sysfs_type;
+
+# SLA
+type qti_proc_sla, proc_type;
+type sla_data_file, data_file_type, file_type;
+type slad_socket, file_type;
+
+# WLAN
+type vendor_mac_vendor_data_file, data_file_type, file_type;
