@@ -946,6 +946,19 @@
              channels="1" />
     </EncoderProfile>
 
+    <EncoderProfile quality="highspeed480p" fileFormat="mp4" duration="30">
+      <Video codec="h264"
+             bitRate="6400000"
+             width="640"
+             height="480"
+             frameRate="120" />
+
+      <Audio codec="aac"
+             bitRate="156000"
+             sampleRate="48000"
+             channels="2" />
+    </EncoderProfile>
+
         <ImageEncoding quality="95" />
         <ImageEncoding quality="80" />
         <ImageEncoding quality="70" />
@@ -1265,6 +1278,19 @@
              bitRate="96000"
              sampleRate="48000"
              channels="1" />
+    </EncoderProfile>
+
+    <EncoderProfile quality="highspeed480p" fileFormat="mp4" duration="30">
+      <Video codec="h264"
+             bitRate="6400000"
+             width="640"
+             height="480"
+             frameRate="120" />
+
+      <Audio codec="aac"
+             bitRate="156000"
+             sampleRate="48000"
+             channels="2" />
     </EncoderProfile>
 
         <ImageEncoding quality="95" />

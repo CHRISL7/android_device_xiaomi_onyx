@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!--
-Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted (subject to the limitations in the
@@ -34,21 +34,26 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
 <clstc_libs>
-    <library>
-        <name>libdolbyclstc.so</name>
-        <priority>1</priority>
-        <enable>1</enable>
-    </library>
 
     <library>
         <name>libclstc_algorithm_adapter.so</name>
-        <priority>2</priority>
+	<priority>2</priority>
+        <enable>1</enable>
+    </library>
+    <library>
+        <name>libdolbyclstc.so</name>
+	<priority>1</priority>
         <enable>1</enable>
     </library>
 
     <library>
         <name>libclstc_gcp_adapter.so</name>
         <priority>3</priority>
+        <enable>1</enable>
+    </library>
+    <library>
+        <name>libmiClstc.so</name>
+        <priority>4</priority>
         <enable>1</enable>
     </library>
 </clstc_libs>

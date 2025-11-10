@@ -21,7 +21,7 @@ Example usage
 -->
 
 <config>
-  <oem-defined-uid name="android.uid.datacacert" uid="2918"/>
+  <oem-defined-uid name="android.uid.vendordata" uid="2918"/>
 </config>
 
 

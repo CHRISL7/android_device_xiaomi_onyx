@@ -60,7 +60,7 @@
             </PIPELINE_NUMBER>
             <!-- SCHED_PIPELINE_UTIL_THRES  -->
             <AUTO_PIPELINE>
-                0X43C34000,400
+                0X43C34000,400,0X42804000,12
             </AUTO_PIPELINE>
         </Profile>
     </Profiles>
@@ -217,13 +217,18 @@
         <!--- <Package Name="DefaultGamePackage" NumThreads="2" />  -->
         <Package Name="com.epicgames.fortnite" NumThreads="3" /> <!-- Fortnite -->
         <Package Name="com.netease.yyslscn" NumThreads="3" /> <!-- WWM -->
-        <Package Name="com.tencent.tmgp.sgame" FPS="60" NumThreads="2" /> <!-- HOK60 -->
         <Package Name="com.tencent.tmgp.sgame" FPS="90" NumThreads="3" /> <!-- HOK90 -->
-        <Package Name="com.tencent.tmgp.sgame" FPS="120" NumThreads="3" /> <!-- HOK120 -->
     </PipelinedPackages>
     <IgnoredApps>
         <App>com.google.android.gms</App>
         <App>com.android.vending</App>
         <App>com.google.android.projection.gearhead</App>
+        <App>com.tencent.tmgp.sgame</App>
+        <App>com.miHoYo.Nap</App>
+        <App>com.tencent.tmgp.pubgmhd</App>
+        <App>com.kurogame.mingchao</App>
+        <App>com.tencent.lolm</App>
+        <App>com.tencent.jkchess</App>
+        <App>com.miHoYo.hkrpg</App>
     </IgnoredApps>
 </Feature>

@@ -1,0 +1,40 @@
+##################################################################################################
+Date              Source file name                                             Target file name
+
+2024/07/01        PKG_DualM_E1_V1.1_AMT_20240627100758.pkg                     No_Signal.pkg
+2024/07/01        PKG_HLS_4in1_Dual-S_20240613180848.pkg                       Signal.pkg
+
+2024/07/16        PKG_V1.6_AMT_20240711142649.pkg                              No_Signal.pkg
+2024/07/16        PKG_HLS_DUAL_XM_O2T_CLPC_20240709150831.pkg                  Signal.pkg
+
+2024/07/26        PKG_V1.9_AMT_20240726155322.pkg                              No_Signal.pkg
+2024/07/26        PKG_HLS_DUAL_XM_O2T_20240708143046.pkg                       Signal.pkg
+
+2024/08/07        PKG_V1.10_AMT_20240802171243.pkg                             No_Signal.pkg
+
+2024/08/21        PKG_V1.11_AMT_20240815163746.pkg                             No_Signal.pkg
+
+2024/09/12        PKG_V1.12_AMT_20240903103656.pkg                             No_Signal.pkg
+2024/09/12        PKG_V1.8_HLS_XM_20240910101227.pkg                           Signal.pkg
+
+2024/09/26        PKG_V3.5_AMT_debug_20240925101348.pkg                        No_Signal.pkg
+2024/10/09        PKG_V1.9_HLS_XM_20241008102825.pkg                           Signal.pkg
+
+2024/10/17        PKG_V3.11_AMT_20241016111749.pkg                             No_Signal.pkg
+2024/10/23        PKG_V2.0_HLS_XM_20241023171820.pkg                           Signal.pkg
+
+2024/10/28        PKG_V3.16_AMT_20241024101844.pkg                             No_Signal.pkg
+2024/11/07        PKG_V2.1_HLS_XM_20241106112138.pkg                           Signal.pkg
+
+2024/11/07        PKG_V3.17_AMT_20241105184634.pkg                             No_Signal.pkg
+
+2024/11/27        PKG_V3.24_AMT_20241127154646.pkg                             No_Signal.pkg
+2024/11/29        PKG_V2.2_HLS_XM_20241128163343.pkg                           Signal.pkg
+
+2024/12/09        PKG_V2.3_HLS_XM_20241206143925.pkg                           Signal.pkg
+
+2024/12/18        PKG_V2.4_HLS_XM_20241212104653.pkg                           Signal.pkg
+
+2024/12/24        PKG_V2.5_HLS_XM_20241219191824.pkg                           Signal.pkg
+
+2025/01/13        PKG_V2.6_HLS_XM_20250111.pkg                                 Signal.pkg

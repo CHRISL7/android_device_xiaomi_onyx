@@ -45,7 +45,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
       <!-- Sample config for Game layer which uses mode strategy -->
       <LayerApp name="game">
-        <AppLayer name="SurfaceView[com.sample.game/com.sample.game.GameActivity](BLAST)#0" type="game" strategy="mode" mode="1" variation="0.6" samples="8" enable="true"/>
+        <AppLayer name="SurfaceView[com.miHoYo.Yuanshen/com.miHoYo.GetMobileInfo.MainActivity](BLAST)#0" type="game" strategy="mode" mode="1" variation="0.6" samples="8" enable="false"/>
       </LayerApp>
 
       <!-- Disable CTS layer in smomo default config -->

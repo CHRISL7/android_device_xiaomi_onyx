@@ -420,4 +420,32 @@
     </mixer>
 
 </card>
+<!-- Haptic_MIUIHapticFrame start -->
+<card>
+    <id>101</id>
+    <name>sunvirtualsndcard-1</name>
+
+    <pcm-device>
+        <id>150</id>
+        <name>PCM150</name>
+        <pcm_plugin>
+            <so-name>libagm_pcm_plugin.so</so-name>
+        </pcm_plugin>
+        <props>
+            <playback>1</playback>
+            <capture>0</capture>
+            <session_mode>0</session_mode>
+        </props>
+    </pcm-device>
+
+    <mixer>
+        <id>1</id>
+        <name>agm_mixer</name>
+        <mixer_plugin>
+            <so-name>libagm_mixer_plugin.so</so-name>
+        </mixer_plugin>
+    </mixer>
+
+</card>
+<!-- Haptic_MIUIHapticFrame end -->
 </defs>

@@ -20,7 +20,7 @@
       },
       "value": {
         "Val": {
-          "StringValue": "READ_ONLY"
+          "StringValue": "READ_WRITE"
         }
       }
     },
@@ -44,7 +44,7 @@
       },
       "value": {
         "Val": {
-          "StringValue": "aconfig_value_set-platform_build_release-root aconfig_value_set-platform_build_release-ap3a"
+          "StringValue": "aconfig_value_set-platform_build_release-root aconfig_value_set-platform_build_release-ap3a aconfig_value_set-missi-feature"
         }
       }
     },
@@ -916,7 +916,7 @@
       },
       "value": {
         "Val": {
-          "BoolValue": true
+          "BoolValue": false
         }
       }
     },
@@ -2020,6 +2020,30 @@
     },
     {
       "flag_declaration": {
+        "name": "RELEASE_PANGU_REGION",
+        "namespace": "android_UNKNOWN",
+        "description": "",
+        "value": {
+          "Val": {
+            "StringValue": ""
+          }
+        },
+        "workflow": 1,
+        "containers": [
+          "product",
+          "system",
+          "system_ext",
+          "vendor"
+        ]
+      },
+      "value": {
+        "Val": {
+          "StringValue": "global"
+        }
+      }
+    },
+    {
+      "flag_declaration": {
         "name": "RELEASE_PLATFORM_SDK_EXTENSION_VERSION",
         "namespace": "android_UNKNOWN",
         "description": "The sdk extension version of this release configuration.",
@@ -2086,7 +2110,7 @@
       },
       "value": {
         "Val": {
-          "StringValue": "2025-03-05"
+          "StringValue": "2025-05-01"
         }
       }
     },

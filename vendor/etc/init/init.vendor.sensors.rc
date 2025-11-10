@@ -46,6 +46,7 @@ on early-boot
     chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
     start vendor.sensors
     chown system system /sys/kernel/boot_adsp/ssr
+    chmod 0777 /mnt/vendor/persist/sensors/acc_gyro_regdata.txt
 
 on post-fs-data && property:ro.build.type=userdebug
     #sensors log dir

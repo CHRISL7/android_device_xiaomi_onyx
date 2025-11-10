@@ -37,4 +37,8 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
         <Name>libsnapdragoncolor-qdcm.so</Name>
         <ProcessingOrder>1</ProcessingOrder>
     </Library>
+    <Library>
+        <Name>libmi-stc-HW-modulate.so</Name>
+        <ProcessingOrder>2</ProcessingOrder>
+    </Library>
 </StcLibraries>

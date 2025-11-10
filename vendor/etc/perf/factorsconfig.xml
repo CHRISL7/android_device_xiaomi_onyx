@@ -14,7 +14,7 @@
         <Workload Name="com.tencent.mm"                        LE="537"   Target="tuna,kera" />
         <Workload Name="com.levelinfinite.sgameGlobal"         LE="10465" Target="tuna,kera" />
         <Workload Name="com.tencent.tmgp.pubgmhd"              LE="8875"  Target="tuna,kera" />
-        <Workload Name="com.ss.android.ugc.aweme"              LE="452"   Target="tuna,kera" />
+        <Workload Name="com.ss.android.ugc.aweme"              LE="2000"   Target="tuna,kera" />
         <Workload Name="com.facebook.katana"                   LE="433"   Target="tuna,kera" />
         <Workload Name="com.android.chrome"                    LE="642"   Target="tuna,kera" />
         <Workload Name="com.tencent.qqlivei18n.us"             LE="7052"  Target="tuna,kera" />

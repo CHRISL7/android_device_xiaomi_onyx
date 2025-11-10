@@ -26,59 +26,57 @@
     <Decoders>
         <!-- C2 HW decoders -->
         <MediaCodec name="c2.qti.avc.decoder" type="video/avc" update="true">
-            <Limit name="measured-frame-rate-320x240" range="116-182" />
-            <Limit name="measured-frame-rate-720x480" range="203-275" />
-            <Limit name="measured-frame-rate-1280x720" range="259-538" />
-            <Limit name="measured-frame-rate-1920x1088" range="215-305" />
+            <Limit name="measured-frame-rate-320x240" range="720-2500" />
+            <Limit name="measured-frame-rate-720x480" range="450-1700" />
+            <Limit name="measured-frame-rate-1280x720" range="250-950" />
+            <Limit name="measured-frame-rate-1920x1088" range="120-500" />
         </MediaCodec>
         <MediaCodec name="c2.qti.avc.decoder.low_latency" type="video/avc" update="true">
-            <Limit name="measured-frame-rate-320x240" range="119-185" />
-            <Limit name="measured-frame-rate-720x480" range="145-798" />
-            <Limit name="measured-frame-rate-1280x720" range="278-576" />
-            <Limit name="measured-frame-rate-1920x1080" range="216-306" />
+            <Limit name="measured-frame-rate-320x240" range="580-2000" />
+            <Limit name="measured-frame-rate-720x480" range="380-2000" />
+            <Limit name="measured-frame-rate-1280x720" range="253-950" />
+            <Limit name="measured-frame-rate-1920x1080" range="120-410" />
         </MediaCodec>
         <MediaCodec name="c2.qti.hevc.decoder" type="video/hevc" update="true">
-            <Limit name="measured-frame-rate-352x288" range="611-1321" />
-            <Limit name="measured-frame-rate-640x360" range="167-1139" />
-            <Limit name="measured-frame-rate-720x480" range="163-324" />
-            <Limit name="measured-frame-rate-1280x720" range="354-818" />
-            <Limit name="measured-frame-rate-1920x1080" range="336-475" />
-            <Limit name="measured-frame-rate-3840x2160" range="97-135" />
+            <Limit name="measured-frame-rate-352x288" range="625-1900" />
+            <Limit name="measured-frame-rate-720x480" range="370-1550" />
+            <Limit name="measured-frame-rate-1280x720" range="270-2600" />
+            <Limit name="measured-frame-rate-1920x1080" range="260-1200" />
+            <Limit name="measured-frame-rate-3840x2160" range="67-505" />
         </MediaCodec>
         <MediaCodec name="c2.qti.hevc.decoder.low_latency" type="video/hevc" update="true">
-            <Limit name="measured-frame-rate-352x288" range="575-1331" />
-            <Limit name="measured-frame-rate-640x360" range="180-1137" />
-            <Limit name="measured-frame-rate-720x480" range="182-1089" />
-            <Limit name="measured-frame-rate-1280x720" range="352-818" />
-            <Limit name="measured-frame-rate-1920x1080" range="371-456" />
-            <Limit name="measured-frame-rate-3840x2160" range="97-135" />
+            <Limit name="measured-frame-rate-352x288" range="625-1850" />
+            <Limit name="measured-frame-rate-720x480" range="380-1700" />
+            <Limit name="measured-frame-rate-1280x720" range="315-1920" />
+            <Limit name="measured-frame-rate-1920x1080" range="220-800" />
+            <Limit name="measured-frame-rate-3840x2160" range="67-240" />
         </MediaCodec>
         <MediaCodec name="c2.qti.vp9.decoder" type="video/x-vnd.on2.vp9" update="true">
-            <Limit name="measured-frame-rate-320x180" range="241-1104" />
-            <Limit name="measured-frame-rate-640x360" range="225-461" />
-            <Limit name="measured-frame-rate-1280x720" range="519-734" />
-            <Limit name="measured-frame-rate-1920x1080" range="360-502" />
-            <Limit name="measured-frame-rate-3840x2160" range="92-131" />
+            <Limit name="measured-frame-rate-320x180" range="575-1700" />
+            <Limit name="measured-frame-rate-640x360" range="475-1600" />
+            <Limit name="measured-frame-rate-1280x720" range="260-570" />
+            <Limit name="measured-frame-rate-1920x1080" range="200-450" />
+            <Limit name="measured-frame-rate-3840x2160" range="70-255" />
         </MediaCodec>
         <MediaCodec name="c2.qti.vp9.decoder.low_latency" type="video/x-vnd.on2.vp9" update="true">
-            <Limit name="measured-frame-rate-320x180" range="297-399" />
-            <Limit name="measured-frame-rate-640x360" range="333-410" />
-            <Limit name="measured-frame-rate-1280x720" range="318-669" />
-            <Limit name="measured-frame-rate-1920x1080" range="360-502" />
-            <Limit name="measured-frame-rate-3840x2160" range="92-131" />
+            <Limit name="measured-frame-rate-320x180" range="575-1700" />
+            <Limit name="measured-frame-rate-640x360" range="475-1600" />
+            <Limit name="measured-frame-rate-1280x720" range="260-570" />
+            <Limit name="measured-frame-rate-1920x1080" range="200-450" />
+            <Limit name="measured-frame-rate-3840x2160" range="70-255" />
         </MediaCodec>
         <MediaCodec name="c2.qti.av1.decoder" type="video/av01" update="true">
-            <Limit name="measured-frame-rate-352x288" range="547-670" />
-            <Limit name="measured-frame-rate-720x480" range="200-739" />
-            <Limit name="measured-frame-rate-1280x720" range="355-753" />
-            <Limit name="measured-frame-rate-1920x1080" range="291-412" />
+            <Limit name="measured-frame-rate-352x288" range="465-1900" />
+            <Limit name="measured-frame-rate-720x480" range="370-1550" />
+            <Limit name="measured-frame-rate-1280x720" range="270-2600" />
+            <Limit name="measured-frame-rate-1920x1080" range="260-1200" />
             <Limit name="measured-frame-rate-3840x2160" range="67-505" />
         </MediaCodec>
         <MediaCodec name="c2.qti.av1.decoder.low_latency" type="video/av01" update="true">
-            <Limit name="measured-frame-rate-352x288" range="338-813" />
-            <Limit name="measured-frame-rate-720x480" range="174-396" />
-            <Limit name="measured-frame-rate-1280x720" range="530-749" />
-            <Limit name="measured-frame-rate-1920x1080" range="291-412" />
+            <Limit name="measured-frame-rate-352x288" range="390-1850" />
+            <Limit name="measured-frame-rate-720x480" range="380-1700" />
+            <Limit name="measured-frame-rate-1280x720" range="315-1920" />
+            <Limit name="measured-frame-rate-1920x1080" range="220-800" />
             <Limit name="measured-frame-rate-3840x2160" range="67-240" />
         </MediaCodec>
         <!--

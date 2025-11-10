@@ -103,6 +103,9 @@ on property:persist.vendor.usb.config=* && property:ro.bootmode=ffbm-02
 on property:persist.vendor.usb.config=* && property:ro.bootmode=qmmi
     setprop sys.usb.config ${persist.vendor.usb.config}
 
+on boot && property:ro.boot.factorybuild=1
+    write /config/usb_gadget/g1/strings/0x409/serialnumber 1234567890ABCDEF
+
 on ffbm
     trigger early-fs
     trigger factory-fs

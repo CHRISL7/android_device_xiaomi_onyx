@@ -66,6 +66,7 @@ madvise: 1
 inotify_init1: 1
 inotify_add_watch: 1
 inotify_rm_watch: 1
+getcpu: 1
 
 # crash dump policy additions
 clock_gettime: 1

@@ -32,13 +32,18 @@ ________________________________________________________________________________
     <PerfConfigs>
 
                 <!--Vendor Properties -->
+                <!-- MIUI ADD: Performance_BoostFramework -->
+                <Prop Name="vendor.iop.enable_uxe" Value="0" />
+                <!-- END Performance_BoostFramework -->
                 <Prop Name="vendor.debug.enable.lm" Value="true" />
                 <Prop Name="vendor.enable.prefetch" Value="false" />
-                <Prop Name="vendor.iop.enable_speed" Value="true" /> <!--rename to perf-->
+                <Prop Name="vendor.iop.enable_speed" Value="false" /> <!--rename to perf-->
                 <Prop Name="vendor.perf.fps_switch_hyst_time_secs" Value="10" />
                 <Prop Name="ro.vendor.perf.enable.prekill"        Value="true" />
                 <Prop Name="ro.vendor.perf.enable.procomp" Value="true" />
-                <Prop Name="ro.vendor.perf.enable.prefapps" Value="true" />
+                <!-- MIUI MOD: Performance_BoostFramework -->
+                <Prop Name="ro.vendor.perf.enable.prefapps" Value="false" />
+                <!-- END Performance_BoostFramework -->
                 <Prop Name="vendor.prekill_MIN_ADJ_to_Kill" Value="800" />
                 <Prop Name="vendor.prekill_MAX_ADJ_to_Kill" Value="1000" />
                 <Prop Name="ro.vendor.perf.count.prefapps" Value="12" />
@@ -48,14 +53,15 @@ ________________________________________________________________________________
                 <Prop Name="vendor.debug.enable.memperfd"         Value="true" />
                 <Prop Name="vendor.enable.memperfd_MIN_RAM_in_KB" Value="1048576" />
                 <Prop Name="vendor.enable.memperfd_MAX_RAM_in_KB" Value="15728640" />
-                <Prop Name="ro.vendor.perf.ss" Value="true" Target="sun" />
-                <Prop Name="ro.vendor.perf.ssv2" Value="true" Target="sun" />
-                <Prop Name="ro.vendor.perf.lal" Value="true" Target="sun" />
-                <Prop Name="ro.vendor.perf.lgl" Value="true" Target="sun" SkewType="10" />
-                <Prop Name="ro.vendor.perf.enable.wlclite" Value="true" Target="tuna,kera" />
-                <Prop Name="ro.vendor.perf.silkyscrolls_lite" Value="true" Target="tuna,kera" />
-                <Prop Name="ro.vendor.perf.lighteninglaunches_lite" Value="true" Target="tuna,kera" />
-                <Prop Name="ro.vendor.self_boost.enable" Value="false" Target="tuna" />
+                <Prop Name="ro.vendor.perf.ss" Value="false" Target="sun"/>
+                <Prop Name="ro.vendor.perf.ssv2" Value="false" Target="sun"/>
+                <Prop Name="ro.vendor.perf.lal" Value="false" Target="sun"/>
+                <Prop Name="ro.vendor.perf.lgl" Value="false" Target="sun" SkewType="10"/>
+                <Prop Name="ro.vendor.perf.enable.wlclite" Value="true" Target="tuna,kera"/>
+                <Prop Name="ro.vendor.perf.silkyscrolls_lite" Value="true" Target="tuna,kera"/>
+                <Prop Name="ro.vendor.perf.lighteninglaunches_lite" Value="true" Target="tuna,kera"/>
+                <Prop Name="ro.vendor.self_boost.enable" Value="false" Target="tuna"/>
+
 
                 <!--System Properties -->
                 <!--LMKD Properties -->
@@ -82,8 +88,11 @@ ________________________________________________________________________________
                 <Prop Name="ro.vendor.qti.sys.fw.compaction_delay_sec" Value="120" Target="tuna"/>
                 <Prop Name="ro.vendor.qti.am.reschedule_service" Value="true" />
                 <Prop Name="ro.vendor.at_library" Value="libqti-at.so" />
+                <!-- MIUI ADD: Performance_AppLaunchEnhance -->
+                <Prop Name="ro.vendor.perf.batch.set.enable" Value="true" />
+                <!-- END Performance_AppLaunchEnhance -->
                 <Prop Name="vendor.perf.performancemode.support" Value="true" Target="sun,tuna,kera" />
-                <Prop Name="vendor.appcompact.enable_app_compact" Value="true" />
+                <Prop Name="vendor.appcompact.enable_app_compact" Value="false" />
                 <Prop Name="vendor.appcompact.full_compact_type" Value="2" />
                 <Prop Name="vendor.appcompact.some_compact_type" Value="4" />
                 <Prop Name="vendor.appcompact.compact_throttle_somesome" Value="5000" />
@@ -96,9 +105,11 @@ ________________________________________________________________________________
                 <Prop Name="vendor.appcompact.delta_rss_throttle_kb" Value="8000" />
                 <Prop Name="vendor.perf.topAppRenderThreadBoost.enable" Value="false" Target="sun" />
                 <Prop Name="vendor.perf.topAppRenderThreadBoost.enable" Value="true" Target="tuna,kera" />
-                <Prop Name="vendor.perf.phr.enable" Value="0" Target="sun,tuna,kera"/>
+                <Prop Name="vendor.perf.phr.enable" Value="0" Target="sun"/>
+                <Prop Name="vendor.perf.phr.enable" Value="0" Target="tuna,kera"/>
                 <Prop Name="vendor.qape.enable.target_fps" Value="true" Target="tuna,kera"/>
                 <Prop Name="vendor.perf.phr.hr_min_rate" Value="0.5" Target="sun,tuna,kera"/>
+                <Prop Name="vendor.perf.phr.hr_min_rate_high" Value="1.3" Target="sun"/>
                 <Prop Name="ro.vendor.perf.splh" Value="none" Target="sun,tuna,kera" />
                 <Prop Name="ro.vendor.perf.qhf" Value="true" Target="sun,tuna,kera"/>
                 <Prop Name="ro.vendor.perf.qgpe" Value="true" Target="sun,tuna,kera"/>
@@ -107,10 +118,10 @@ ________________________________________________________________________________
                 <Prop Name="ro.vendor.perf.qape.max_boost_count" Value="3" />
                 <Prop Name="ro.vendor.perf.qape.max_pipeline_number" Value="3" />
                 <Prop Name="vendor.perf.bgt.enable" Value="true" />
+                <Prop Name="ro.vendor.perf.sagt" Value="true" Target="sun"/>
                 <Prop Name="ro.vendor.perf.semiautopipeline" Value="true" Target="sun"/>
                 <Prop Name="ro.vendor.perf.semiautopipeline" Value="false" Target="tuna,kera"/>
-                <Prop Name="ro.vendor.perf.autopipeline" Value="true" Target="sun"/>
-                <Prop Name="ro.vendor.perf.autopipeline" Value="false" Target="tuna,kera"/>
+                <Prop Name="ro.vendor.perf.autopipeline" Value="true" Target="sun,tuna,kera"/>
                 <Prop Name="ro.vendor.qti.sys.fw.bservice_age"                 Value="300000" Target="kera"/>
                 <Prop Name="ro.vendor.qti.sys.fw.bservice_age"                 Value="5000"   Ram="3"/>
                 <Prop Name="ro.vendor.qti.sys.fw.bservice_age"                 Value="5000"   Ram="4"/>

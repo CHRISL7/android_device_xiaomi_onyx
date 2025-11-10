@@ -28,7 +28,7 @@
 
 
 * Changes from Qualcomm Innovation Center, Inc. are provided under the following license:
-* Copyright (c) 2022-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+* Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.
 * SPDX-License-Identifier: BSD-3-Clause-Clear
 * -->
 
@@ -78,6 +78,12 @@
                 <graph_kv key="0xB1000000" value="0xB1000001"/>
                 <!-- INSTANCE - INSTANCE_2 -->
                 <graph_kv key="0xAB000000" value="0x2"/>
+            </keys_and_values>
+            <keys_and_values Direction="TX" Instance="3">
+                <!-- STREAMTX - PCM_RECORD -->
+                <graph_kv key="0xB1000000" value="0xB1000001"/>
+                <!-- INSTANCE - INSTANCE_1 -->
+                <graph_kv key="0xAB000000" value="0x3"/>
             </keys_and_values>
         </stream>
         <!-- Spatial audio stream -->
@@ -193,7 +199,15 @@
         </stream>
         <!-- Loopback stream -->
         <stream type="PAL_STREAM_LOOPBACK">
-            <keys_and_values Direction="RX_TX" SubType="PAL_STREAM_LOOPBACK_PCM,PAL_STREAM_LOOPBACK_FM,PAL_STREAM_LOOPBACK_KARAOKE">
+            <keys_and_values Direction="RX" SubType="PAL_STREAM_LOOPBACK_HFP_RX">
+                <!-- STREAMRX - HFP_RX_PLAYBACK -->
+                <graph_kv key="0xA1000000" value="0xA100000C"/>
+            </keys_and_values>
+            <keys_and_values Direction="TX" SubType="PAL_STREAM_LOOPBACK_HFP_RX">
+                <!-- STREAMTX - HFP_RX_CAPTURE -->
+                <graph_kv key="0xB1000000" value="0xB1000005"/>
+            </keys_and_values>
+            <keys_and_values Direction="RX_TX" SubType="PAL_STREAM_LOOPBACK_PCM,PAL_STREAM_LOOPBACK_FM,PAL_STREAM_LOOPBACK_KARAOKE,PAL_STREAM_LOOPBACK_TIANTONG_TX, PAL_STREAM_LOOPBACK_TIANTONG_RX">
                 <!-- STREAMRX - PCM_RX_LOOPBACK -->
                 <graph_kv key="0xA1000000" value="0xA1000003"/>
             </keys_and_values>
@@ -935,6 +949,32 @@
                 <graph_kv key="0xA3000000" value="0xA3000010"/>
             </keys_and_values>
         </device>
+        <!-- In Tiantong Device -->
+        <device id="PAL_DEVICE_IN_TIANTONG">
+            <keys_and_values>
+                <!-- DEVICETX - TIANTONG_TX -->
+                <graph_kv key="0xA3000000" value="0xA3000100"/>
+            </keys_and_values>
+        </device>
+        <!-- Out Tiantong Device -->
+        <device id="PAL_DEVICE_OUT_TIANTONG">
+            <keys_and_values>
+                <!-- DEVICERX - TIANTONG_RX -->
+                <graph_kv key="0xA2000000" value="0xA2000100"/>
+            </keys_and_values>
+        </device>
+        <device id="PAL_DEVICE_OUT_DUMMY">
+            <keys_and_values>
+                <!-- DEVICERX - DUMMY_RX -->
+                <graph_kv key="0xA2000000" value="0xA200000C"/>
+            </keys_and_values>
+        </device>
+        <device id="PAL_DEVICE_IN_DUMMY">
+            <keys_and_values>
+                <!-- DEVICETX - DUMMY_TX -->
+                <graph_kv key="0xA3000000" value="0xA300000F"/>
+            </keys_and_values>
+        </device>
         <device id="PAL_DEVICE_OUT_BLUETOOTH_HFP">
             <keys_and_values CodecFormat="CODEC_TYPE_INVALID">
                 <!-- DEVICERX - HFP_RX -->
@@ -1023,6 +1063,12 @@
                 <!-- DEVICEPP_RX - DEVICEPP_RX_VOICE_DEFAULT RX_NN_NS/CASCADE -->
                 <graph_kv key="0xAC000000" value="0xAC000009"/>
             </keys_and_values>
+            <keys_and_values StreamType="PAL_STREAM_LOOPBACK" SubType="PAL_STREAM_LOOPBACK_TIANTONG_RX">
+                <!-- DEVICERX - SPEAKER -->
+                <graph_kv key="0xA2000000" value="0xA2000001"/>
+                <!-- DEVICEPP_RX - TianTongRX_RX_PP -->
+                <graph_kv key="0xAC000000" value="0xAC000500"/>
+            </keys_and_values>
         </devicepp>
         <!-- OUT Handset DevicePPs -->
         <devicepp id="PAL_DEVICE_OUT_HANDSET">
@@ -1100,6 +1146,12 @@
                 <graph_kv key="0xA2000000" value="0xA2000002"/>
                 <!-- DEVICEPP_RX - DEVICEPP_RX_VOICE_DEFAULT RX_NN_NS -->
                 <graph_kv key="0xAC000000" value="0xAC000009"/>
+            </keys_and_values>
+            <keys_and_values StreamType="PAL_STREAM_LOOPBACK" SubType="PAL_STREAM_LOOPBACK_TIANTONG_RX">
+                <!-- DEVICERX - HEADPHONES -->
+                <graph_kv key="0xA2000000" value="0xA2000002"/>
+                <!-- DEVICEPP_RX - TianTongRX_RX_PP -->
+                <graph_kv key="0xAC000000" value="0xAC000500"/>
             </keys_and_values>
             <keys_and_values StreamType="PAL_STREAM_LOOPBACK" SubType="PAL_STREAM_LOOPBACK_HFP_RX">
                 <!-- DEVICERX - HEADPHONES -->
@@ -1223,12 +1275,6 @@
                 <graph_kv key="0xA2000000" value="0xA2000005"/>
                 <!-- DEVICEPP_RX - DEVICEPP_RX_VOICE_DEFAULT -->
                 <graph_kv key="0xAC000000" value="0xAC000005"/>
-            </keys_and_values>
-            <keys_and_values StreamType="PAL_STREAM_LOOPBACK" SubType="PAL_STREAM_LOOPBACK_HFP_RX">
-                <!-- DEVICERX - USB_RX -->
-                <graph_kv key="0xA2000000" value="0xA2000005"/>
-                <!-- DEVICEPP_RX - DEVICEPP_RX_HFPSINK -->
-                <graph_kv key="0xAC000000" value="0xAC000004"/>
             </keys_and_values>
         </devicepp>
         <!-- OUT Device Proxy DevicePPs -->
@@ -1384,6 +1430,8 @@
                 <!-- DEVICEPP_TX - DEVICEPP_TX_AUDIO_FLUENCE_SMECNS -->
                 <graph_kv key="0xAD000000" value="0xAD000002"/>
             </keys_and_values>
+            <keys_and_values StreamType="PAL_STREAM_DEEP_BUFFER" CustomConfig="recorder-ozo">
+            </keys_and_values>
             <keys_and_values StreamType="PAL_STREAM_DEEP_BUFFER,PAL_STREAM_COMPRESSED" CustomConfig="dual-mic">
                 <!-- DEVICETX - SPEAKER_MIC -->
                 <graph_kv key="0xA3000000" value="0xA3000001"/>
@@ -1475,6 +1523,12 @@
                 <!-- DEVICEPP_TX - DEVICEPP_TX_FLUENCE_FFECNS -->
                 <graph_kv key="0xAD000000" value="0xAD000001"/>
             </keys_and_values>
+            <keys_and_values StreamType="PAL_STREAM_LOOPBACK" SubType="PAL_STREAM_LOOPBACK_TIANTONG_TX">
+                <!-- DEVICETX - SPEAKER_MIC -->
+                <graph_kv key="0xA3000000" value="0xA3000001"/>
+                <!-- DEVICEPP_TX - DEVICEPP_TX_VOIP_FLUENCE_ENDFIRE -->
+                <graph_kv key="0xAD000000" value="0xAD00000D"/>
+            </keys_and_values>
         </devicepp>
         <!-- IN BT_SCO_Headset DevicePPs  -->
         <devicepp id="PAL_DEVICE_IN_BLUETOOTH_SCO_HEADSET">
@@ -1547,6 +1601,12 @@
                 <graph_kv key="0xA3000000" value="0xA3000003"/>
                 <!-- DEVICEPP_TX - DEVICEPP_TX_FLUENCE_FFECNS -->
                 <graph_kv key="0xAD000000" value="0xAD000001"/>
+            </keys_and_values>
+            <keys_and_values StreamType="PAL_STREAM_LOOPBACK" SubType="PAL_STREAM_LOOPBACK_TIANTONG_TX">
+                <!-- DEVICETX - HEADPHONE_MIC -->
+                <graph_kv key="0xA3000000" value="0xA3000003"/>
+                <!-- DEVICEPP_TX - TianTongTX_TX_PP -->
+                <graph_kv key="0xAD000000" value="0xAD000B00"/>
             </keys_and_values>
         </devicepp>
         <!-- IN USB device and USB headset DevicePPs -->
@@ -1735,12 +1795,6 @@
                 <!-- DEVICEPP_TX - DEVICEPP_TX_VOIP_FLUENCE_SMECNS -->
                 <graph_kv key="0xAD000000" value="0xAD000007"/>
             </keys_and_values>
-            <keys_and_values StreamType="PAL_STREAM_VOICE_RECOGNITION">
-                <!-- DEVICETX - BT_TX -->
-                <graph_kv key="0xA3000000" value="0xA3000002"/>
-                <!-- DEVICEPP_TX - DEVICEPP_TX_VOICE_RECOGNITION -->
-                <graph_kv key="0xAD000000" value="0xAD000017"/>
-            </keys_and_values>
         </devicepp>
        <!-- IN Ultrasound DevicePPs -->
         <devicepp id="PAL_DEVICE_IN_ULTRASOUND_MIC">
@@ -1761,6 +1815,24 @@
              <keys_and_values StreamType="PAL_STREAM_DEEP_BUFFER,PAL_STREAM_COMPRESSED">
                 <!-- DEVICEPP_TX - DEVICEPP_TX_AUDIO_FLUENCE_SMECNS -->
                 <graph_kv key="0xAD000000" value="0xAD000002"/>
+            </keys_and_values>
+        </devicepp>
+        <!-- In Tiantong Device -->
+        <devicepp id="PAL_DEVICE_IN_TIANTONG">
+            <keys_and_values StreamType="PAL_STREAM_LOOPBACK" SubType="PAL_STREAM_LOOPBACK_TIANTONG_RX">
+                <!-- DEVICETX - TIANTONG_TX -->
+                <graph_kv key="0xA3000000" value="0xA3000100"/>
+                <!-- DEVICEPP_TX - TianTongRX_TX_PP -->
+                <graph_kv key="0xAD000000" value="0xAD000C00"/>
+            </keys_and_values>
+        </devicepp>
+        <!-- Out Tiantong Device -->
+        <devicepp id="PAL_DEVICE_OUT_TIANTONG">
+            <keys_and_values StreamType="PAL_STREAM_LOOPBACK" SubType="PAL_STREAM_LOOPBACK_TIANTONG_TX">
+                <!-- DEVICERX - TIANTONG_RX -->
+                <graph_kv key="0xA2000000" value="0xA2000100"/>
+                <!-- DEVICEPP_RX - TianTongTX_RX_PP -->
+                <graph_kv key="0xAC000000" value="0xAC000400"/>
             </keys_and_values>
         </devicepp>
     </devicepps>

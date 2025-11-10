@@ -51,7 +51,6 @@ need to be added just before the end of it's major group. -->
         <Minor OpcodeValue="0x4" Node="/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq" />
         <Minor OpcodeValue="0x5" Node="/sys/devices/system/cpu/cpufreq/policy0/walt/adaptive_level_1" />
         <Minor OpcodeValue="0x6" Node="/sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_cond_freq" />
-        <Minor OpcodeValue="0x7" Node="/sys/devices/system/cpu/cpufreq/policy%d/walt/zone_max_util_pct" Supported="no"/>
     <!-- cpufreq major end -->
 
     <!-- sched major start -->
@@ -401,13 +400,12 @@ need to be added just before the end of it's major group. -->
         <Minor OpcodeValue="0x13" Node="/proc/sys/walt/sched_pipeline_pin_thres_high_pct" />
         <Minor OpcodeValue="0x14" Node="/proc/sys/walt/cluster%d/smart_freq/ipc_freq_levels" />
         <Minor OpcodeValue="0x15" Node="/proc/sys/walt/sched_ed_boost" />
-        <Minor OpcodeValue="0x16" Node="/proc/sys/walt/sched_pipeline_special" Supported="no" />
+        <Minor OpcodeValue="0x16" Node="/proc/sys/walt/sched_pipeline_special" />
         <Minor OpcodeValue="0x17" Node="/proc/sys/walt/cluster%d/smart_freq/legacy_freq_levels" />
         <Minor OpcodeValue="0x18" Node="/proc/sys/walt/sched_single_thread_pipeline" />
         <Minor OpcodeValue="0x19" Node="/proc/sys/walt/sched_pipeline_rearrange_delay_ms" />
         <Minor OpcodeValue="0x1A" Node="/proc/sys/walt/sched_util_busy_hyst_cpu_util" Supported="no" />
         <Minor OpcodeValue="0x1B" Node="/proc/sys/walt/sched_force_frequent_yielder" />
-        <Minor OpcodeValue="0x1C" Node="/proc/sys/walt/sched_sibling_cluster" />
     <!-- sched2 major end -->
     <!--Add new resource expected value and write value in configs/test/common/perfcommonresourceconfigs.xml
     for support in regression framework-->
@@ -434,6 +432,11 @@ need to be added just before the end of it's major group. -->
         <Minor OpcodeValue="0x7" Node="/config/platform_mpam/noc_bw/gpu/schemata" Supported="no" />
         <Minor OpcodeValue="0x8" Node="/config/platform_mpam/noc_bw/nsp/schemata" Supported="no" />
     <!-- MPAM group major end -->
+
+    <!-- game solution major start -->
+    <Major OpcodeValue="0x12" />
+        <Minor OpcodeValue="0x0" Node="/proc/sys/walt/sched_auto_penalty" />
+    <!-- game solution major end -->
 
     </PerfResources>
 </ResourceConfigs>

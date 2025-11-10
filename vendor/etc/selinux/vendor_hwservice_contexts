@@ -1,3 +1,4 @@
+com.android.ozoaudio.notify::IOzoNotify                         u:object_r:hal_ozonotify_hwservice:s0
 com.qualcomm.qti.ant::IAntHci                                   u:object_r:hal_bluetooth_hwservice:s0
 com.dsi.ant::IAnt                                               u:object_r:hal_bluetooth_hwservice:s0
 vendor.qti.mstatservice::IMStatService                          u:object_r:vendor_hal_mstatservice_hwservice:s0
@@ -28,6 +29,7 @@ vendor.qti.hardware.camera.postproc::IPostProcService        u:object_r:vendor_h
 vendor.qti.hardware.camera.aon::IAONService                  u:object_r:vendor_hal_camera_aon_hwservice:s0
 vendor.qti.hardware.power.powermodule::IPowerModule          u:object_r:vendor_hal_poweroptservice_hwservice:s0
 vendor.qti.hardware.limits::ILimits                          u:object_r:vendor_hal_limits_hwservice:s0
+vendor.qti.diaghal::Idiag                                    u:object_r:vendor_hal_diaghal_hwservice:s0
 vendor.qti.hardware.alarm::IAlarm                            u:object_r:vendor_hal_alarm_qti_hwservice:s0
 vendor.qti.hardware.wigig.supptunnel::ISuppTunnelProvider    u:object_r:vendor_hal_wigig_hwservice:s0
 vendor.qti.hardware.wigig.netperftuner::INetPerfTuner        u:object_r:vendor_hal_wigig_npt_hwservice:s0
@@ -68,6 +70,12 @@ vendor.qti.hardware.slmadapter::ISlmAdapter                  u:object_r:vendor_h
 vendor.qti.hardware.perf::IPerfCallback                      u:object_r:vendor_hal_perfcallback_hwservice:s0
 vendor.qti.hardware.mwqemadapter::IMwqemAdapter              u:object_r:vendor_hal_mwqemadapter_hwservice:s0
 vendor.qti.hardware.dpmservice::IDpmService                  u:object_r:vendor_hal_dpmapi_hwservice:s0
-vendor.qti.diaghal::Idiag                          	     u:object_r:vendor_hal_diaghal_hwservice:s0
-com.qualcomm.qti.loopbackhal::Iloopback                      u:object_r:vendor_qtiloopback_hwservice:s0
-vendor.qti.hardware.servicetracker::IDebugUtils              u:object_r:hal_debugutils_hwservice:s0
+vendor.xiaomi.hardware.fx.tunnel::IMiFxTunnel                                        u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
+vendor.xiaomi.hardware.fingerprintextension::IXiaomiFingerprint                      u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
+com.fingerprints.extension::IFingerprintEngineering                                  u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
+com.fingerprints.extension::IFingerprintAuthenticator                                u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
+com.fingerprints.extension::IFingerprintNavigation                                   u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
+com.fingerprints.extension::IFingerprintSensorTest                                   u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
+com.fingerprints.extension::IFingerprintCalibration                                  u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
+com.fingerprints.extension::IFingerprintOptical                                      u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
+vendor.xiaomi.hardware.mfidoca::IFidoService       u:object_r:hal_mfidoca_hwservice:s0

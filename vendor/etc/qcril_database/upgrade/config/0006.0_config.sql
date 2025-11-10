@@ -22,7 +22,7 @@ INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.dont_use_epc", "true");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.rcv_dormancy_ind", "on_screen_state");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.no_srv_rc_17", "false");
-INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.bar_fake_gcell", "false");
+INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.bar_fake_gcell", "true");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.wait_time_for_fake_ecc", "10");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.unicode_op_names", "false");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.enableadvancedscan", "true");
@@ -117,7 +117,9 @@ INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.pwropt_modepref_0", "0");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.pwropt_modepref_1", "0");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.default_network", "0");
-INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.always_send_plmn", "0");
+/* MIUI ADD: Modem_ModemEnhance */
+INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.always_send_plmn", "1");
+/* END Modem_ModemEnhance */
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.restore_mode_pref", "false");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.manual_nw_rej_ct", "0");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.ignore_dom_time", "0");
@@ -147,11 +149,13 @@ INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.stack_id_0", "0");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.stack_id_1", "0");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.start_ota_daemon", "false");
-INSERT OR REPLACE INTO qcril_properties_table(property) VALUES("persist.vendor.radio.mt_sms_ack");
+INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.mt_sms_ack", "18");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.sms_link_timer", "4");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.force_on_dc", "false");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.block_sms_on_1x", "0");
-INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.process_sups_ind", "false");
+/* MIUI ADD: Modem_ModemEnhance */
+INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.process_sups_ind", "true");
+/* END Modem_ModemEnhance */
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.0x9e_not_callname", "false");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.orig_num_disp", "0");
 INSERT OR REPLACE INTO qcril_properties_table(property, def_val) VALUES("persist.vendor.radio.clir0", "0");

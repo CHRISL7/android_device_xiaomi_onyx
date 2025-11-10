@@ -30,10 +30,23 @@
 #
 
 service vendor.sensors.qti /vendor/bin/sensors.qti
-    class core
+    class main
     user system
     group system
-
+    oneshot
+on property:debug.sensors.diag_buffer_log=true
+    start vendor.sensors.qti
+on property:debug.sensors.diag_buffer_log=false
+    stop vendor.sensors.qti
+on boot
+    #sensors diag2bugreport log dir
+    mkdir /data/vendor/sensor_log
+    mkdir /data/vendor/sensors
+    chown system system /data/vendor/sensor_log
+    chown system system /data/vendor/sensors
+    chown system system /vendor/etc/sensor_diag.cfg
+    chmod 0777 /data/vendor/sensor_log
+    chmod 0777 /data/vendor/sensors
 service vendor-sensor-sh /vendor/bin/init.qcom.sensors.sh
     class late_start
     user root

@@ -148,7 +148,7 @@ enable
 TX DEC2 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC2:1
 TX_DEC2 Volume:114
-TX DMIC MUX2:DMIC1
+TX DMIC MUX2:DMIC0
 
 disable
 TX_AIF1_CAP Mixer DEC2:0
@@ -166,8 +166,7 @@ Txdevice:0
 enable
 TX DEC2 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC2:1
-TX_DEC2 Volume:114
-TX DMIC MUX2:DMIC0
+TX DMIC MUX2:DMIC1
 
 disable
 TX_AIF1_CAP Mixer DEC2:0
@@ -625,7 +624,7 @@ SpkrRight SWR DAC_Port Switch:1
 WSA_RX1 Digital Volume:40
 
 TX DEC0 MUX:MSM_DMIC
-TX DMIC MUX0:DMIC0
+TX DMIC MUX0:DMIC1
 
 disable
 WSA RX1 MUX:ZERO
@@ -839,9 +838,9 @@ SpkrLeft COMP Switch:1
 SpkrLeft VISENSE Switch:1
 SpkrLeft SWR DAC_Port Switch:1
 
-TX DEC0 MUX:MSM_DMIC
-TX_AIF1_CAP Mixer DEC0:1
-TX DMIC MUX0:DMIC3
+TX DEC2 MUX:MSM_DMIC
+TX_AIF1_CAP Mixer DEC2:1
+TX DMIC MUX2:DMIC1
 TX_DEC2 Volume:90
 
 disable
@@ -852,8 +851,8 @@ SpkrLeft COMP Switch:0
 SpkrLeft VISENSE Switch:0
 SpkrLeft SWR DAC_Port Switch:0
 
-TX_AIF1_CAP Mixer DEC0:0
-TX DMIC MUX0:ZERO
+TX_AIF1_CAP Mixer DEC2:0
+TX DMIC MUX2:ZERO
 
 tc 223
 #HANDSETMIC to SpkrRight AFE loopback
@@ -1093,11 +1092,11 @@ tc 228
 !AfeLoop
 gkv_rx:PCM_RX_LOOPBACK-SPEAKER
 be_name_rx:CODEC_DMA-LPAIF_WSA-RX-0
-pcm_id_rx:103
+pcm_id_rx:100
 channels_rx:1
 gkv_tx:0-SPEAKER_MIC
 be_name_tx:CODEC_DMA-LPAIF_RXTX-TX-3
-pcm_id_tx:104
+pcm_id_tx:101
 channels_tx:1
 
 enable
@@ -1107,12 +1106,12 @@ WSA_COMP2 Switch:1
 SpkrRight COMP Switch:1
 SpkrRight VISENSE Switch:1
 SpkrRight SWR DAC_Port Switch:1
-WSA_RX1 Digital Volume:84
+WSA_RX1 Digital Volume:80
 
 TX DEC2 MUX:MSM_DMIC
 TX_AIF1_CAP Mixer DEC2:1
-TX DMIC MUX2:DMIC2
-
+TX DMIC MUX2:DMIC0
+TX_DEC2 Volume:90
 
 disable
 WSA RX1 MUX:ZERO
@@ -1146,10 +1145,10 @@ SpkrRight VISENSE Switch:1
 SpkrRight SWR DAC_Port Switch:1
 WSA_RX1 Digital Volume:80
 
-TX DEC0 MUX:MSM_DMIC
-TX_AIF1_CAP Mixer DEC0:1
-TX DMIC MUX0:DMIC2
-TX_DEC0 Volume:90
+TX DEC2 MUX:MSM_DMIC
+TX_AIF1_CAP Mixer DEC2:1
+TX DMIC MUX2:DMIC2
+TX_DEC2 Volume:100
 
 disable
 WSA RX1 MUX:ZERO
@@ -1159,8 +1158,8 @@ SpkrRight COMP Switch:0
 SpkrRight VISENSE Switch:0
 SpkrRight SWR DAC_Port Switch:0
 
-TX_AIF1_CAP Mixer DEC0:0
-TX DMIC MUX0:ZERO
+TX_AIF1_CAP Mixer DEC2:0
+TX DMIC MUX2:ZERO
 
 tc 230
 #DMIC4 to SpkrRight AFE loopback
