@@ -1,0 +1,30 @@
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.odm.brand=qti
+ro.product.odm.device=sun
+ro.product.odm.manufacturer=QUALCOMM
+ro.product.odm.model=Sun for arm64
+ro.product.odm.name=sun
+ro.odm.product.cpu.abilist=arm64-v8a
+ro.odm.product.cpu.abilist32=
+ro.odm.product.cpu.abilist64=arm64-v8a
+ro.odm.build.date=Sat Mar 22 18:04:36 PDT 2025
+ro.odm.build.date.utc=1742691876
+ro.odm.build.fingerprint=qti/sun/sun:15/AQ3A.250226.002/eng.lnxbui.00000000.000000:userdebug/test-keys
+ro.odm.build.id=AQ3A.250226.002
+ro.odm.build.tags=test-keys
+ro.odm.build.type=userdebug
+ro.odm.build.version.incremental=eng.lnxbui.00000000.000000
+ro.odm.build.version.release=15
+ro.odm.build.version.release_or_codename=15
+ro.odm.build.version.sdk=35
+####################################
+# from variable ADDITIONAL_ODM_PROPERTIES
+####################################
+ro.vendor.qti.va_odm.support=1
+####################################
+# from variable PRODUCT_ODM_PROPERTIES
+####################################
+# end of file
