@@ -1,0 +1,5 @@
+service vendor.qti.snapdragonServices.sanityService /vendor/bin/sanity_service
+    class hal
+    interface aidl vendor.qti.snapdragonServices.sanityService.ISanityService/default
+    disabled
+    oneshot

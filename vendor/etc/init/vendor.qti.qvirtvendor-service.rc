@@ -1,0 +1,9 @@
+# Copyright (c) 2024 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+service vendor.qvirtvendorservice /vendor/bin/vendor.qti.qvirtvendor-service
+  class hal
+  user system
+  group system
+  disabled

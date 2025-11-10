@@ -1,0 +1,8 @@
+{
+  "source_dir": "/vendor/lib/rfsa/adsp",
+  "nanoapps": [
+    "activity",
+    "dck_gating",
+    "nearby"
+  ]
+}
