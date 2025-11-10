@@ -1,0 +1,5 @@
+# only customized property
+ro.product.odm.name=onyx
+ro.product.odm.cert=25053RT47C
+ro.product.odm.model=25053RT47C
+ro.product.odm.marketname=REDMI Turbo 4 Pro Edition

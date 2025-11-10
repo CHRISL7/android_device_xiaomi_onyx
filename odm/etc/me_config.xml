@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MIUI ADD: Modem_ModemEnhance -->
+<MESubFeatureConfig>
+	<!--glb -->
+    <!-- device_name = ro.product.device -->
+    <deviceConfig device_name="onyx">
+        <!-- hwc_name = ro.product.mod_device -->
+        <hwc hwc_name="GL" />
+        <!-- feature_id refer to MEFeatureConfig.MEFEATURE_TYPE_ID_XXX -->
+        <feature feature_id="1" hw_support="0"  sw_enable="0" sw_mp_enable="0"/>
+        <feature feature_id="10" hw_support="1" sw_version="1" sw_enable="1" sw_mp_enable="1"/>
+        <feature feature_id="17" hw_support="0"  sw_enable="0" sw_mp_enable="0"/>
+	<feature feature_id="22" hw_support="1" sw_version="1" sw_enable="1" sw_mp_enable="1"/>
+    </deviceConfig>
+    <!--cn -->
+    <!-- device_name = ro.product.device -->
+    <deviceConfig device_name="onyx">
+        <!-- hwc_name = ro.product.mod_device -->
+        <hwc hwc_name="CN" />
+        <!-- feature_id refer to MEFeatureConfig.MEFEATURE_TYPE_ID_XXX -->
+        <feature feature_id="7" hw_support="1" sw_version="1" sw_enable="1" sw_mp_enable="1"/>
+        <feature feature_id="8" hw_support="1" sw_version="1" sw_enable="1" sw_mp_enable="1"/>
+        <feature feature_id="9" hw_support="1" sw_version="1" sw_enable="1" sw_mp_enable="1"/>
+        <feature feature_id="10" hw_support="1" sw_version="1" sw_enable="1" sw_mp_enable="1"/>
+	<feature feature_id="19" hw_support="1" sw_version="1" sw_enable="1" sw_mp_enable="1"/>
+	<feature feature_id="22" hw_support="1" sw_version="1" sw_enable="1" sw_mp_enable="1"/>
+	<!--bitMask 0x31f==853 -->
+        <!--11 0011 1110 1111 0001 1111 add 22:sigweak 21:gps, delete 19:hotspot 13:NTN-->
+        <GestureModeMapConfigBitMask bitMask="3403551" />
+        <!--coexist: wifi,bt,ntn,celluar for T1 -->
+        <NWCoexistMapConfig>
+            <!--CALL scene -->
+            <NWCoexistMapItem bt="255"  wifi="255" voice="1" weak1="1"  bt1="255" gps="255" sigweak="255" outMode="1"/>
+            <NWCoexistMapItem bt="255"  wifi="255" voice="2" weak1="1"  bt1="255" gps="255" sigweak="255" outMode="1"/>
+            <NWCoexistMapItem bt="255"  wifi="255" voice="3" weak1="255"  bt1="255" gps="255" sigweak="255" outMode="1"/>
+            <!--signal weak scene -->
+            <NWCoexistMapItem bt="255"  wifi="255" voice="255" weak1="255"  bt1="255" gps="255" sigweak="1" outMode="1"/>
+            <!--gps scene -->
+            <NWCoexistMapItem bt="255"  wifi="1" voice="255" weak1="255"  bt1="1" gps="1" sigweak="255" outMode="4"/>
+            <NWCoexistMapItem bt="255"  wifi="1" voice="255" weak1="255"  bt1="255" gps="1" sigweak="255" outMode="4"/>
+            <NWCoexistMapItem bt="255"  wifi="255" voice="255" weak1="255"  bt1="1" gps="1" sigweak="255" outMode="3"/>
+            <NWCoexistMapItem bt="255"  wifi="255" voice="255" weak1="255"  bt1="255" gps="1" sigweak="255" outMode="2"/>
+            <!--wifi/bt scene -->
+            <NWCoexistMapItem bt="255"  wifi="1" voice="255" weak1="255"  bt1="1" gps="255" sigweak="255" outMode="3"/>
+            <NWCoexistMapItem bt="255"  wifi="255" voice="255" weak1="255"  bt1="1" gps="255" sigweak="255" outMode="3"/>
+            <NWCoexistMapItem bt="255"  wifi="1" voice="255" weak1="255"  bt1="255" gps="255" sigweak="255" outMode="3"/>
+            <!--default -->
+             <NWCoexistMapItem bt="255"  wifi="255" voice="255" weak1="255" bt1="255" gps="255" sigweak="255" outMode="1"/>
+        </NWCoexistMapConfig>
+        <NWCoexistControlMapConfig>
+             <NWCoexistControlMapItem  mode="1" outGPIO0="0"    outGPIO1="0"    outGPIO2="255"    outGPIO3="255"    outGPIO4="255"    outGPIO5="255"    outGPIO6="255"/>
+             <NWCoexistControlMapItem  mode="2" outGPIO0="0"    outGPIO1="1"    outGPIO2="255"    outGPIO3="255"    outGPIO4="255"    outGPIO5="255"    outGPIO6="255"/>
+	     <NWCoexistControlMapItem  mode="3" outGPIO0="1"    outGPIO1="0"    outGPIO2="255"    outGPIO3="255"    outGPIO4="255"    outGPIO5="255"    outGPIO6="255"/>
+	     <NWCoexistControlMapItem  mode="4" outGPIO0="1"    outGPIO1="1"    outGPIO2="255"    outGPIO3="255"    outGPIO4="255"    outGPIO5="255"    outGPIO6="255"/>
+        </NWCoexistControlMapConfig>
+</deviceConfig>
+	<!--in -->
+    <!-- device_name = ro.product.device -->
+    <deviceConfig device_name="onyx">
+        <!-- hwc_name = ro.product.mod_device -->
+        <hwc hwc_name="IN" />
+        <!-- feature_id refer to MEFeatureConfig.MEFEATURE_TYPE_ID_XXX -->
+        <feature feature_id="1" hw_support="0"  sw_enable="0" sw_mp_enable="0"/>
+        <feature feature_id="10" hw_support="1" sw_version="1" sw_enable="1" sw_mp_enable="1"/>
+        <feature feature_id="17" hw_support="0"  sw_enable="0" sw_mp_enable="0"/>
+	<feature feature_id="22" hw_support="1" sw_version="1" sw_enable="1" sw_mp_enable="1"/>
+    </deviceConfig>
+    <!--default -->
+    <!-- device_name = ro.product.device -->
+    <deviceConfig device_name="onyx">
+        <!-- hwc_name = ro.product.mod_device -->
+        <hwc hwc_name="default" />
+        <!-- feature_id refer to MEFeatureConfig.MEFEATURE_TYPE_ID_XXX -->
+        <feature feature_id="1" hw_support="0"  sw_enable="0" sw_mp_enable="0"/>
+        <feature feature_id="17" hw_support="0"  sw_enable="0" sw_mp_enable="0"/>
+	<feature feature_id="22" hw_support="1" sw_version="1" sw_enable="1" sw_mp_enable="1"/>
+    </deviceConfig>
+</MESubFeatureConfig>
+<!-- END Modem_ModemEnhance -->

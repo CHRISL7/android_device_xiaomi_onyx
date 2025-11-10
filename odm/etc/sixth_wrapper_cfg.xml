@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<sixth_wrapper_config>
+    <config_element name="sipa_ctl_prefix" left_ctl="SpkrLeft" right_ctl="SpkrRight" description="sipa ctrl name prefix"/>
+    <config_element name="hpf" enable="0" frq1="109" frq2="53" chiptype1="9" chiptype2="10" 
+        description="set hpf feq"/>
+    <config_element name="vdd" enable="1" battery_node="/sys/class/power_supply/battery/voltage_now"
+        vdd_step="10000" description="read vdd and set ad_hoc gain, vdd_step(mv)">
+        <value_map threshold="3750000" ratio_value ="100,100" description="ad_hoc ratio"/>
+        <value_map threshold="3300000" ratio_value ="89,89" description="ad_hoc ratio"/>
+        <value_map threshold="3040000" ratio_value ="79,79" description="ad_hoc ratio"/>
+        <value_map threshold="0" ratio_value ="63,63" description="ad_hoc ratio"/>
+    </config_element> 
+    <config_element name="channel" num="2" description="set ch num"/>
+    <config_element name="timer_cfg" enable="1" description="enable timer"/>
+    <config_element name="lp_protect_cfg" enable="0" description="turn on/off interval set lp value"/>
+    <config_element name="algo_val_set" enable="1" description="set algo param, eg, r0, f0"/>
+    <config_element name="lp_set" enable="0" description="Is init lp value"/>
+</sixth_wrapper_config>
