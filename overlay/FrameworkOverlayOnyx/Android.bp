@@ -1,0 +1,11 @@
+runtime_resource_overlay {
+    name: "FrameworkOverlayOnyx",
+    device_specific: true,
+}
+
+runtime_resource_overlay {
+    name: "FrameworkOverlayOnyxGL",
+    manifest: "AndroidManifest-GL.xml",
+    resource_dirs: ["res-GL"],
+    device_specific: true,
+}

@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "SecureElementOverlayOnyx",
+    device_specific: true,
+}

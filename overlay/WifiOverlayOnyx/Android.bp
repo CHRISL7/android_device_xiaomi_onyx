@@ -1,0 +1,17 @@
+runtime_resource_overlay {
+    name: "WifiOverlayOnyx",
+    device_specific: true,
+}
+
+runtime_resource_overlay {
+    name: "WifiOverlayOnyxCN",
+    manifest: "AndroidManifest-CN.xml",
+    resource_dirs: ["res-CN"],
+    device_specific: true,
+}
+
+runtime_resource_overlay {
+    name: "WifiOverlayOnyxTargetMainline",
+    manifest: "AndroidGoogleManifest.xml",
+    device_specific: true,
+}

@@ -1,0 +1,5 @@
+runtime_resource_overlay {
+    name: "CarrierConfigOverlayOnyx",
+    device_specific: true,
+    aaptflags: ["--keep-raw-values"],
+}
