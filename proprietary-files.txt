@@ -2786,6 +2786,7 @@ vendor/lib64/libqcodec2_v4l2codec.so|80f05d03e605768a709e65db486be4c1e4adc8c7
 vendor/lib64/libqcodec2_videofrcfilter.so|3b44908cfa2a24f940c944a8906f691b002fa9a4
 vendor/lib64/libvideotxr.so|6110b265df832201419d5be314eb581436737dce
 vendor/lib64/qti.video.utils.videobufferlayout.so|8f9a70bc541efb9bce647d74e4fe49892f0f426f
+vendor/lib64/vendor.qti.hardware.qconfig-V1-ndk.so|2be3bd1f86d5858b977b26a1284940b86b9e4b50
 
 # Media Config
 vendor/etc/media_tuna_v0/video_system_specs.json|5647676a9427b45b17c006ef6b656c442bb16943
@@ -3201,7 +3202,6 @@ vendor/lib64/libqcrildataaidl.so|1623f96fd710b8129eeb059258ccc0d6478d4fd7
 vendor/lib64/libqcrildatactl.so|a068e800d509578092e3e924bbdad23948b0d371
 vendor/lib64/libqcrildataqos.so|f691e7a3438067659f7847c2319f480e6d4ae512
 vendor/lib64/libqdpr.so|35ab1a36c7f7aad6da92adf5d032664e955fa8b7
-vendor/lib64/libqms_xiaomi.so|e0b6ca2fd698103fe2bf992bddaac34314a012d8
 vendor/lib64/libqrtr.so|3c7b3ee367756e5876918693d21e5063693b07a8
 vendor/lib64/libqsocket.so|2ad43b0fef17d481bcd3696ecf87b328ef2becc7
 vendor/lib64/librcc.so|0dda0967f728eb07f5f09104492df75572b504bc
@@ -3476,7 +3476,7 @@ vendor/bin/subsystem_ramdump|7d4e17065baf08d9ac3d425cc38c2f0d8fa23028
 vendor/bin/hw/sxrservice|111390786ca04118a032099ba88ddd2182c7762d
 vendor/etc/init/sxrd.rc|cf6af54ed55ec212dd2269c1b4640ac681ee3882
 vendor/etc/seccomp_policy/sxr@2.0.policy|b97e0762e80621ec79d2fe9b430336c74e1c8226
-vendor/lib64/libsxrservice.so|a5f711f5fcb928d8a3f31a76257e1a4514d9a8cd
+vendor/lib64/libsxrservice.so|a5f711f5fcb928d8a3f31a76257e1a4514d9a8cd|840ff92dae1a4ea3a8053dbe9527326bb19b22eb
 vendor/lib64/vendor.qti.hardware.qxr-V2-ndk.so|959d4ea14f8759baec6c8e94d2de1a1e3649479f
 
 # Syshealthmon
@@ -3676,8 +3676,7 @@ vendor/lib64/libvpphcp.so|71f991eedf8f2ee8073620fd344018a3d3b7eba5
 vendor/lib64/libvpphvx.so|15b35ef756b0ddb224f47142bef020fced978253
 vendor/lib64/libvppimmotion.so|178317677948a082c663ee80db1dd60f972fb5f1
 vendor/lib64/libvpplibrary.so|cbce641bd92d8c13c50d591ba528c0b60abc9e9f
-vendor/lib64/vendor.qti.hardware.vpp-V1-ndk.so;MODULE_SUFFIX=_vendor|2be3bd1f86d5858b977b26a1284940b86b9e4b50
-vendor/lib64/vendor.qti.hardware.vpp-V1-ndk.so|6b93e8eb4366097fd10343c73f0693e3d4542d35
+vendor/lib64/vendor.qti.hardware.vpp-V1-ndk.so;MODULE_SUFFIX=_vendor|6b93e8eb4366097fd10343c73f0693e3d4542d35
 vendor/lib64/vendor.qti.hardware.vpp@1.1.so|6e4f0dd625e8f7ed505de0b957bcf37d3880bdb3
 vendor/lib64/vendor.qti.hardware.vpp@1.2.so|844fa4cd5c0f2c605954bab645c6807855e523f7
 vendor/lib64/vendor.qti.hardware.vpp@1.3.so|265b69fcacfef8bf9f8d6944c53a94e58b103726
