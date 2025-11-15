@@ -3676,7 +3676,7 @@ vendor/lib64/libvpphcp.so|71f991eedf8f2ee8073620fd344018a3d3b7eba5
 vendor/lib64/libvpphvx.so|15b35ef756b0ddb224f47142bef020fced978253
 vendor/lib64/libvppimmotion.so|178317677948a082c663ee80db1dd60f972fb5f1
 vendor/lib64/libvpplibrary.so|cbce641bd92d8c13c50d591ba528c0b60abc9e9f
-vendor/lib64/vendor.qti.hardware.qconfig-V1-ndk.so|2be3bd1f86d5858b977b26a1284940b86b9e4b50
+vendor/lib64/vendor.qti.hardware.vpp-V1-ndk.so;MODULE_SUFFIX=_vendor|2be3bd1f86d5858b977b26a1284940b86b9e4b50
 vendor/lib64/vendor.qti.hardware.vpp-V1-ndk.so|6b93e8eb4366097fd10343c73f0693e3d4542d35
 vendor/lib64/vendor.qti.hardware.vpp@1.1.so|6e4f0dd625e8f7ed505de0b957bcf37d3880bdb3
 vendor/lib64/vendor.qti.hardware.vpp@1.2.so|844fa4cd5c0f2c605954bab645c6807855e523f7
