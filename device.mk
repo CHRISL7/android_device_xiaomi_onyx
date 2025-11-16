@@ -141,6 +141,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
 
+# Crypto
+PRODUCT_ODM_PROPERTIES += \
+    vendor.wv.oemcrypto.debug.enable_prov40=true
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.crypto.metadata_init_delete_all_keys.enabled=true \
+    vendor.wv.oemcrypto.debug.enable_external_display_check=false \
+    vendor.wv.oemcrypto.debug.enable_hlos_data_path=true
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer3-V3-ndk.vendor \
@@ -227,8 +236,9 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health-service.qti \
-    android.hardware.health-service.qti_recovery
+   android.hardware.health-service.qti \
+   android.hardware.health-service.qti_recovery \
+   charger_res_images_vendor
 
 # Hypsy
 PRODUCT_PACKAGES += \
@@ -241,8 +251,13 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    fstab.qcom.vendor_ramdisk \
+    fw_dir.ueventd.qcom.rc \
     init.target.rc \
     init.xiaomi.rc
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init/init.recovery.qcom.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.qcom.rc
 
 # Kernel Binary
 KERNEL_PREBUILT_DIR := device/xiaomi/onyx-kernel
