@@ -36,20 +36,6 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
-        'android.hardware.authsecret-service.nxp-qti',
-        'android.hardware.weaver-service.nxp-qti',
-        'android.hardware.security.keymint-service.strongbox-nxp',
-        'ese_weaver',
-        'libauthsecret_empty-nxp',
-        'libjc_keymint-nxp',
-        'libjc_keymint_transport_nxp',
-        'libkeymint_empty-nxp',
-        'libkeymint_empty-thales',
-        'libkeymint_transport_empty-nxp',
-        'libweaver_empty-nxp',
-        'libweaver_empty-thales.so',
-    ): lib_fixup_odm_suffix,
-    (
         'com.qualcomm.qti.dpm.api@1.0',
         'com.qualcomm.qti.imscmservice@2.0',
         'com.qualcomm.qti.imscmservice@2.1',
@@ -178,18 +164,6 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_lockPlanes')
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock'),
-
-    (
-        'odm/bin/hw/android.hardware.security.keymint-service.strongbox-nxp',
-        'odm/lib64/libjc_keymint-nxp.so',
-        'odm/lib64/libjc_keymint_transport_nxp.so',
-        'odm/lib64/libkeymint_empty-nxp.so',
-        'odm/lib64/libkeymint_empty-thales.so',
-        'vendor/bin/hw/android.hardware.security.keymint-service-qti',
-        'vendor/lib64/libqtikeymint.so',
-    ): blob_fixup()
-        .replace_needed('android.hardware.security.keymint-V3-ndk.so', 'android.hardware.security.keymint-V3-ndk_prebuilt.so')
-        .replace_needed('libcppbor_external.so', 'libcppbor_onyx.so'),
 
     (
         'odm/lib64/libaudioroute_ext.so',
