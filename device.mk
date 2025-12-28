@@ -9,20 +9,31 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 # Project ID Quota
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
-# Virtual A/B
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+# pKVM
+$(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
 
 # Dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
-# pKVM
-$(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
+# Vendor
+$(call inherit-product, vendor/xiaomi/onyx/onyx-vendor.mk)
 
-# Qualcomm
-$(call soong_config_set,rfs,mpss_firmware_symlink_target,modem_firmware)
-$(call inherit-product, hardware/qcom-caf/common/common.mk)
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    hardware/xiaomi
+
+# Platform
+TARGET_BOARD_PLATFORM := sun
 
 # A/B
+ENABLE_AB := true
+ENABLE_VIRTUAL_AB := true
+
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/vabc_features.mk)
+PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := lz4
+PRODUCT_VENDOR_PROPERTIES += ro.virtual_ab.compression.threads=true
+
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -230,6 +241,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.consumerir.xml
 
+# Kernel Binary
+KERNEL_PREBUILT_DIR := device/xiaomi/onyx-kernel
+
 # Keymint
 PRODUCT_PACKAGES += \
     android.hardware.authsecret-service.nxp \
@@ -250,10 +264,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
-$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/xm_power/charger/smart_charge/smart_night)
-$(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
-$(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
-$(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,false)
+TARGET_HEALTH_CHARGING_CONTROL_CHARGING_ENABLED := 0
+TARGET_HEALTH_CHARGING_CONTROL_CHARGING_DISABLED := 1
+TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/xm_power/charger/smart_charge/smart_night
+TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -294,7 +308,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     ApertureOverlayOnyx \
     CarrierConfigOverlayOnyx \
-    CustomSettingsOverlayOnyx \
     SystemUIOverlayOnyx \
     TelephonyOverlayOnyx \
     FrameworkOverlayOnyx \
@@ -316,16 +329,6 @@ PRODUCT_PACKAGES += \
     vendor_firmware_mnt_mountpoint \
     vendor_modem_firmware_mountpoint
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power-service.lineage-libperfmgr \
-    libqti-perfd-client
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
-$(call soong_config_set,power_libperfmgr,mode_extension_lib,//$(LOCAL_PATH):libpowermode-ext-onyx)
-
 # Properties
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/properties/odm_CN.prop:$(TARGET_COPY_OUT_ODM)/etc/odm_CN.prop \
@@ -337,15 +340,11 @@ PRODUCT_PACKAGES += \
     vendor.qti.qspa-service \
     qspa_vendor.rc
 
-# QTI fwk-detect
-PRODUCT_PACKAGES += \
-    libvndfwk_detect_jni.qti_vendor # Needed by CNE app
-
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.xiaomi-multihal \
     sensors.dynamic_sensor_hal \
-    sensors.xiaomi.v2
+    sensors.xiaomi
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_ODM)/etc/sensors/hals.conf
@@ -360,33 +359,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    hardware/google/interfaces \
-    hardware/google/pixel \
-    hardware/lineage/interfaces/power-libperfmgr \
-    hardware/qcom-caf/common/libqti-perfd-client \
-    hardware/xiaomi
-
 # Telephony
-PRODUCT_PACKAGES += \
-    extphonelib \
-    extphonelib-product \
-    extphonelib.xml \
-    extphonelib_product.xml \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti-telephony-hidl-wrapper-prd \
-    qti_telephony_hidl_wrapper.xml \
-    qti_telephony_hidl_wrapper_prd.xml \
-    qti-telephony-utils \
-    qti-telephony-utils-prd \
-    qti_telephony_utils.xml \
-    qti_telephony_utils_prd.xml \
-    telephony-ext
-
 PRODUCT_PACKAGES += \
     qcrilNrDb_vendor
 
@@ -394,7 +367,6 @@ PRODUCT_PACKAGES += \
     xiaomi-telephony-stub
 
 PRODUCT_BOOT_JARS += \
-    telephony-ext \
     xiaomi-telephony-stub
 
 PRODUCT_COPY_FILES += \
@@ -435,10 +407,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
 
-# Vendor service manager
-PRODUCT_PACKAGES += \
-    vndservicemanager
-
 # Verified boot
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
@@ -476,6 +444,3 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.aware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.aware.xml
-
-# Vendor
-$(call inherit-product, vendor/xiaomi/onyx/onyx-vendor.mk)

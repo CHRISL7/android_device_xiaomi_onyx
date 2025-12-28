@@ -54,17 +54,13 @@ TARGET_BOOTLOADER_BOARD_NAME := sun
 TARGET_SCREEN_DENSITY := 504
 
 # Filesystem
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
+TARGET_FS_CONFIG_GEN += $(DEVICE_PATH)/configs/config.fs
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
-    $(DEVICE_PATH)/configs/hidl/compatibility_matrix.device.xml \
-    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
+    $(DEVICE_PATH)/configs/hidl/compatibility_matrix.device.xml
 
-DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix_aidl.xml
-DEVICE_MANIFEST_FILE := \
-    $(DEVICE_PATH)/configs/hidl/manifest.xml \
-    hardware/qcom-caf/sm8750/audio/primary-hal/configs/sun/manifest_audio_qti_services.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
 
 # Kernel
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
@@ -74,18 +70,21 @@ TARGET_NEEDS_DTBOIMAGE := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image
+BOARD_USES_GENERIC_KERNEL_IMAGE := true
+TARGET_HAS_GENERIC_KERNEL_HEADERS := true
 
 BOARD_BOOT_HEADER_VERSION := 4
-BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
 BOARD_KERNEL_CMDLINE := \
-    video=vfb:640x400,bpp=32,memsize=3072000 \
-    swinfo.fingerprint=$(LINEAGE_VERSION) \
-    mtdoops.fingerprint=$(LINEAGE_VERSION) \
-    bootmonitor.fingerprint=$(LINEAGE_VERSION)
+    disable_dma32=on \
+    mtdoops.fingerprint=$(AOSPA_VERSION) \
+    video=vfb:640x400,bpp=32,memsize=3072000
+
+BOARD_BOOTCONFIG += androidboot.selinux=permissive
 
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
@@ -95,33 +94,6 @@ BOARD_BOOTCONFIG := \
     androidboot.load_modules_parallel=true \
     androidboot.hypervisor.protected_vm.supported=true \
     androidboot.vendor.qspa=true
-
-# Kernel (prebuilt)
-PREBUILT_PATH := $(DEVICE_PATH)-kernel
-TARGET_NO_KERNEL_OVERRIDE := true
-TARGET_KERNEL_SOURCE := $(PREBUILT_PATH)/kernel-headers
-BOARD_PREBUILT_DTBIMAGE_DIR := $(PREBUILT_PATH)/images/dtbs/
-BOARD_PREBUILT_DTBOIMAGE := $(PREBUILT_PATH)/images/dtbo.img
-PRODUCT_COPY_FILES += \
-	$(PREBUILT_PATH)/images/kernel:kernel
-
-# Kernel modules
-GKI_VERSION := 6.6.77-android15-8-g4a507830d890-ab13636293-4k
-DLKM_MODULES_PATH := $(PREBUILT_PATH)/modules/vendor_dlkm
-RAMDISK_MODULES_PATH := $(PREBUILT_PATH)/modules/vendor_boot
-SYSTEM_DLKM_MODULES_PATH := $(PREBUILT_PATH)/modules/system_dlkm/$(GKI_VERSION)
-
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(SYSTEM_DLKM_MODULES_PATH)/,$(TARGET_COPY_OUT_SYSTEM_DLKM)/lib/modules/$(GKI_VERSION)/)
-
-BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(DLKM_MODULES_PATH)/*.ko)
-BOARD_VENDOR_KERNEL_MODULES_LOAD := $(patsubst %,$(DLKM_MODULES_PATH)/%,$(shell cat $(DLKM_MODULES_PATH)/modules.load))
-BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(DLKM_MODULES_PATH)/modules.blocklist
-
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(RAMDISK_MODULES_PATH)/*.ko)
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(patsubst %,$(RAMDISK_MODULES_PATH)/%,$(shell cat $(RAMDISK_MODULES_PATH)/modules.load))
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD  := $(patsubst %,$(RAMDISK_MODULES_PATH)/%,$(shell cat $(RAMDISK_MODULES_PATH)/modules.load.recovery))
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(RAMDISK_MODULES_PATH)/modules.blocklist
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
@@ -155,12 +127,6 @@ TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 
--include vendor/lineage/config/BoardConfigReservedSize.mk
-
-# Platform
-BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := sun
-
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/properties/odm.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/properties/product.prop
@@ -178,8 +144,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Sepolicy
-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
-include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Vendor security patch
