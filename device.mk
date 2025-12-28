@@ -290,7 +290,8 @@ PRODUCT_PACKAGES += \
 # QTI COMPONENTS
 TARGET_COMMON_QTI_COMPONENTS := \
     alarm \
-    audio
+    audio \
+    av
 
 # Sensors
 PRODUCT_PACKAGES += \
