@@ -340,6 +340,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.qspa-service \
     qspa_vendor.rc
 
+# QTI COMPONENTS
+TARGET_COMMON_QTI_COMPONENTS := \
+    alarm
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.xiaomi-multihal \
