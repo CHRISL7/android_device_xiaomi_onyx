@@ -63,7 +63,6 @@
 import /vendor/etc/init/hw/init.qti.kernel.rc
 import /vendor/etc/init/hw/init.batterysecret.rc
 import /vendor/etc/init/hw/init.mi_thermald.rc
-import /odm/etc/init/hw/init.mi_ambient.rc
 
 on early-init
     write /proc/sys/kernel/printk_devkmsg ratelimited
@@ -458,7 +457,7 @@ on early-boot
     verity_update_state
 
 on boot
-    write /dev/cpuset/audio-app/cpus 0-7
+    write /dev/cpuset/audio-app/cpus 0-1
     # Add a cpuset for the camera daemon
     # We want all cores for camera
     mkdir /dev/cpuset/camera-daemon
@@ -643,12 +642,6 @@ on early-boot && property:persist.vendor.pcie.boot_option=*
     write /sys/bus/platform/devices/1c00000.qcom,pcie/debug/boot_option ${persist.vendor.pcie.boot_option}
     write /sys/bus/platform/devices/1c08000.qcom,pcie/debug/boot_option ${persist.vendor.pcie.boot_option}
 
-service fatal_err_check /vendor/bin/check_fatal_err.sh
-    class late_start
-    user root
-    group root
-    oneshot
-
 on property:vendor.bluetooth.startwdsdaemon=true
     start vendor.bt_wdsdaemon
 on property:vendor.bluetooth.startwdsdaemon=false
@@ -724,9 +717,6 @@ service ufs_ffu_service /vendor/bin/sh /vendor/bin/ufs_ffu.sh
 on property:sys.boot_completed=1
     start ufs_ffu_service
 
-    # Set thermal mode to tgame
-    write /sys/devices/virtual/thermal/thermal_message/sconfig 18
-
 #for cts-on-gsi test
 on boot && property:ro.product.system.manufacturer=Android
     setprop debug.sf.set_idle_timer_ms 0
@@ -747,70 +737,3 @@ on property:persist.vendor.lp.fcs.enable=true
 on property:persist.vendor.lp.fcs.enable=false
     write /sys/class/net/wlan0/unit_test_target "67 4 103 0 2 0"
     write /sys/class/net/wlan0/unit_test_target "67 4 103 1 2 0"
-
-#for online boot cpu
-on property:sys.boot_completed=1
-    wait /sys/class/thermal/thermal_message/boot_complete
-    write /sys/class/thermal/thermal_message/boot_complete 2
-
-service mi-serial-sh /odm/bin/init.mi.serial.sh
-    class late_start
-    user root
-    group root system radio
-    disabled
-    oneshot
-
-on post-fs && property:ro.product.device=yupei
-    start mi-serial-sh
-on property:ro.product.device=yupei && property:ro.vendor.ril.oem.sno=*
-    setprop ro.ril.oem.sno ${ro.vendor.ril.oem.sno}
-on property:ro.product.device=yupei && property:ro.vendor.ril.oem.psno=*
-    setprop ro.ril.oem.psno ${ro.vendor.ril.oem.psno}
-
-on post-fs && property:ro.product.device=piano
-    start mi-serial-sh
-on property:ro.product.device=piano && property:ro.vendor.ril.oem.sno=*
-    setprop ro.ril.oem.sno ${ro.vendor.ril.oem.sno}
-on property:ro.product.device=piano && property:ro.vendor.ril.oem.psno=*
-    setprop ro.ril.oem.psno ${ro.vendor.ril.oem.psno}
-
-service mi-factory_id-sh /vendor/odm/bin/init.mi.factory_id.sh
-    class late_start
-    user root
-    group root system radio
-    disabled
-    oneshot
-
-on post-fs && property:ro.product.device=yupei
-    start mi-factory_id-sh
-
-service mi-serial-sh /odm/bin/init.mi.serial.sh
-    class late_start
-    user root
-    group root system radio
-    disabled
-    oneshot
-
-service vendor.sensors-hal-multihal /vendor/bin/hw/android.hardware.sensors-service.xiaomi-multihal
-    override
-    class hal
-    user system
-    group system wakelock context_hub input uhid
-    task_profiles ServiceCapacityLow
-    socket audio_us_socket_1 seqpacket 0666 system system
-    capabilities BLOCK_SUSPEND
-    rlimit rtprio 10 10
-
-service vendor.audio-hal-aidl /vendor/bin/hw/audiohalservice.qti
-    override
-    class hal
-    user audioserver
-    group audio media mediadrm drmrpc inet net_bt net_bt_admin net_bw_acct wakelock context_hub oem_2901 oem_2912
-    capabilities BLOCK_SUSPEND SYS_NICE
-    # setting RLIMIT_RTPRIO allows binder RT priority inheritance
-    rlimit rtprio 10 10
-    ioprio rt 4
-    task_profiles ProcessCapacityHigh HighPerformance
-    writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
-    socket audio_us_socket_0 seqpacket 0666 system system
-    onrestart restart audioserver
