@@ -21,6 +21,8 @@ from extract_utils.main import (
 namespace_imports = [
     'hardware/xiaomi',
     'device/xiaomi/onyx',
+    'vendor/qcom/common/system/perf',
+    'vendor/qcom/common/vendor/perf',
 ]
 
 
@@ -47,6 +49,7 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.diaghal-V1-ndk',
         'vendor.qti.diaghal@1.0',
         'vendor.qti.hardware.fm-V1-ndk',
+        'vendor.qti.hardware.vpp-V1-ndk',
         'vendor.qti.hardware.wifidisplaysession_aidl-V1-ndk',
         'vendor.qti.ims.uceaidlservice-V1-ndk',
         'vendor.qti.ImsRtpService-V1-ndk',
