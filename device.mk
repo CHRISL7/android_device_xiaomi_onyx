@@ -246,7 +246,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     init \
     perf \
     telephony \
-    usb
+    usb \
+    wfd
 
 # Sensors
 PRODUCT_PACKAGES += \

@@ -8,6 +8,3 @@ debug.hwui.skia_atrace_enabled=false
 media.stagefright.thumbnail.prefer_hw_codecs=true
 ro.media.recorder-max-base-layer-fps=60
 ro.media.xml_variant.profiles=_tuna_v0
-
-# WFD
-persist.debug.wfd.enable=1
