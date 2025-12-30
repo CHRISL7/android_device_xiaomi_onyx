@@ -20,7 +20,6 @@ from extract_utils.main import (
 
 namespace_imports = [
     'hardware/xiaomi',
-    'device/xiaomi/onyx',
     'vendor/qcom/common/system/perf',
     'vendor/qcom/common/vendor/perf',
 ]
