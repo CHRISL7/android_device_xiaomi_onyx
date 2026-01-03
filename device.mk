@@ -200,14 +200,13 @@ PRODUCT_PACKAGES += \
     ApertureOverlayOnyx \
     CarrierConfigOverlayOnyx \
     SystemUIOverlayOnyx \
-    TelephonyOverlayOnyx \
+    AOSPAFrameworkOverlayOnyx \
     FrameworkOverlayOnyx \
     FrameworkOverlayOnyxGL \
     NfcOverlayOnyx \
     SettingsOverlayOnyx \
     SettingsProviderOverlayOnyx \
     SettingsProviderOverlayOnyxCN \
-    SecureElementOverlayOnyx \
     WifiOverlayOnyx \
     WifiOverlayOnyxCN
 
@@ -240,6 +239,7 @@ TARGET_COMMON_QTI_COMPONENTS := \
     display \
     gps \
     init \
+    overlay \
     perf \
     telephony \
     usb \
