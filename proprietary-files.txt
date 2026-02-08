@@ -1407,6 +1407,7 @@ odm/lib64/libwa_widelens_undistort.so
 odm/lib64/libxmi_slow_motion_mein.so
 odm/lib64/vendor.xiaomi.hardware.seccam-V1-ndk.so
 vendor/bin/hw/vendor.qti.camera.provider-service_64
+vendor/etc/bpf/cameraBpfGpl.o
 vendor/etc/camera/cameraopt_perf.json
 vendor/etc/camera/cameraopt_vendor.json
 vendor/etc/init/vendor.qti.camera.provider-service_64.rc
@@ -1682,15 +1683,18 @@ vendor/lib64/hw/com.qti.chi.offline.so
 vendor/lib64/hw/com.qti.chi.override.so
 vendor/lib64/immunesystem.db.sqlite3.so
 vendor/lib64/libAF.so
+vendor/lib64/libAIHDIcon.so
 vendor/lib64/libDISAlgos.so
 vendor/lib64/libDlhookDumpStates.so
 vendor/lib64/libFS.so
 vendor/lib64/libHISCppAlgos.so
 vendor/lib64/libIMTCppAlgos.so
+vendor/lib64/libnova.so
 vendor/lib64/libITT.so
 vendor/lib64/libMiMotion.so
 vendor/lib64/libMiPhotoFilter.so
 vendor/lib64/libPlatformValidatorShared.so
+vendor/lib64/libRecordCNN.so
 vendor/lib64/libSNPE.so
 vendor/lib64/libSNPESample.so
 vendor/lib64/libSnpeHta.so
@@ -2283,9 +2287,17 @@ vendor/etc/display/formats.json
 vendor/etc/display/graphics_alignments.json
 vendor/etc/display/pipe_config_DPU11__.xml
 vendor/etc/display/sdm_display_resolution_extn.xml
+vendor/etc/display/sm8735p_sr_2x_y1280x720.dlc
+vendor/etc/display/sm8735p_sr_2x_y720x1280.dlc
+vendor/etc/display/sm8735p_sr_3x_y544x960.dlc
+vendor/etc/display/sm8735p_sr_3x_y960x544.dlc
+vendor/etc/display/sm8735p_sr_4x_y544x544.dlc
+vendor/etc/display/sm8735p_sr_5x_y384x640.dlc
+vendor/etc/display/sm8735p_sr_5x_y640x384.dlc
 vendor/etc/display/ubwc_alignments.json
 vendor/etc/display/video_alignments.json
 vendor/etc/displayconfig/display_layout_configuration.xml
+vendor/etc/display/xiaomi_o1_38_0c_0b_cmd_mode_dsc_dsi_panel.json
 
 # Display (HDR)
 vendor/lib64/libgame_enhance.so
@@ -2630,6 +2642,7 @@ vendor/lib64/libadreno_compiler_cl.so
 vendor/lib64/libadreno_utils.so
 vendor/lib64/libgsl.so
 vendor/lib64/libkcl.so
+vendor/lib64/libkcl_a730.so
 vendor/lib64/libkernelmanager.so
 vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
@@ -2649,10 +2662,13 @@ vendor/firmware/gen80000_gmu.bin
 vendor/firmware/gen80000_sqe.fw
 vendor/firmware/gen80600_gmu.bin
 vendor/firmware/gmu_gen70900.bin
-vendor/gpu/kbc/sequence_manifest.bin
+vendor/gpu/kbc/sequence_manifest_a730.bin
 vendor/gpu/kbc/unified_kbcs_32.bin
+vendor/gpu/kbc/unified_kbcs_32_a730.bin
 vendor/gpu/kbc/unified_kbcs_64.bin
+vendor/gpu/kbc/unified_kbcs_64_a730.bin
 vendor/gpu/kbc/unified_ksqs.bin
+vendor/gpu/kbc/unified_ksqs_a730.bin
 
 # Hexlp
 vendor/bin/hexlpservice
@@ -2956,6 +2972,7 @@ vendor/etc/init/ssgtzd.rc
 vendor/etc/init/tlpd.rc
 vendor/etc/init/vendor.qti.rmt_storage.rc
 vendor/etc/init/vendor.qti.tftp.rc
+vendor/etc/permissions/android.hardware.telephony.satellite.xml
 vendor/etc/permissions/noRil/apq_excluded_telephony_features.xml
 vendor/etc/qcril_database/upgrade/config/0006.0_config.sql;FILEGROUP=proprietary_rildb_config_sql_files
 vendor/etc/qcril_database/upgrade/config/0007.0_config.sql;FILEGROUP=proprietary_rildb_config_sql_files
@@ -3181,6 +3198,7 @@ vendor/etc/vintf/manifest/secure_element-service.xml
 vendor/lib64/hw/libEseUtils.so
 vendor/lib64/libGPQeSE.so
 vendor/lib64/libstnfc-streset.so
+vendor/lib64/vendor.xiaomi.hardware.aidl.mtdservice-V1-ndk.so
 vendor/lib64/vendor.xiaomi.hardware.aidl.mtdservice-V1-ndk_platform.so
 
 # SMC Invoke

@@ -19,6 +19,7 @@ on post-fs-data
     mkdir /data/vendor/camera 0777 camera camera
     mkdir /data/vendor/camera/offlinelog 0777 cameraserver audio
     mkdir /data/vendor/camera/aftersalelog 0777 cameraserver audio
+    mkdir /data/vendor/camera/overlay 0777 cameraserver audio
     # MIUI ADD: Camera_CameraSkyNet
     chmod 0666 /dev/camlog
     #END Camera_CameraSkyNet

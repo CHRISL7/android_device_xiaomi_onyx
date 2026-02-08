@@ -24,7 +24,10 @@
 /odm/lib(64)?/libmialgo_utils\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libmiocr\.so u:object_r:same_process_hal_file:s0
 /odm/lib(64)?/libxmi_slow_motion_mein\.so u:object_r:same_process_hal_file:s0
-/vendor/data/model/seg_quantized\.serialized\.8750\.pertensor_512_cls3r\.bin u:object_r:same_process_hal_file:s0
+/(odm|vendor)/lib(64)?/libcamxexternalformatutils\.so                    u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libnova\.so                                                  u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libAIHDIcon\.so                                                  u:object_r:same_process_hal_file:s0
+/(vendor|odm)/data/model/seg_quantized\.serialized\.8750\.pertensor_512_cls3r\.bin      u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libPlatformValidatorShared\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libQnnHtpNetRunExtensions\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libQnnHtpV79Stub\.so u:object_r:same_process_hal_file:s0
@@ -95,6 +98,10 @@
 /dev/metis u:object_r:migt_dev:s0
 /dev/migt u:object_r:migt_dev:s0
 /sys/module/metis/parameters(/.*)? u:object_r:sysfs_migt:s0
+
+# Mi
+/(odm|vendor/odm)/bin/init\.mi\.serial\.sh        u:object_r:vendor_qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/init\.xiaomi\.modem\.sh              u:object_r:vendor_qti_init_shell_exec:s0
 
 # MliPay
 /(odm|vendor/odm|system/vendor)/bin/mlipayd u:object_r:hal_mlipay_default_exec:s0
