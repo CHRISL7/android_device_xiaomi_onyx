@@ -24,6 +24,9 @@ namespace_imports = [
 ]
 
 
+def lib_fixup_device_suffix(lib: str, partition: str, *args, **kwargs):
+    return f'{lib}_onyx' if partition in ('odm', 'vendor') else None
+
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
 
@@ -31,14 +34,12 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
-        'libagm',
-        'libagmclient',
-        'libagmmixer',
-        'libar-acdb',
-        'libar-gsl',
-        'libats',
-        'liblx-osal',
-        'libvui_intf',
+        'audiohalservice.qti',
+        'libaudioserviceexampleimpl',
+        'libmediautils_vendor',
+    ): lib_fixup_device_suffix,
+    (
+
     ): lib_fixup_remove,
     (
         'vendor.qti.diaghal-V1-ndk',
@@ -183,6 +184,20 @@ blob_fixups: blob_fixups_user_type = {
             'android.media.audio.common.types-V6-ndk.so',
             'android.media.audio.common.types-V3-ndk.so'
     ),
+
+    (
+        'vendor/lib64/libmisoundfx_aidl_ext.so',
+        'vendor/lib64/soundfx/libbundleaidl.so',
+        'vendor/lib64/soundfx/libdlbvolaidl.so',
+        'vendor/lib64/soundfx/libhwdapaidl.so',
+        'vendor/lib64/soundfx/libmiwndnsprocessingaidl.so',
+        'vendor/lib64/soundfx/libswgamedapaidl.so'
+    ): blob_fixup()
+        .replace_needed('android.hardware.audio.effect-V3-ndk.so', 'android.hardware.audio.effect-V2-ndk.so')
+        .replace_needed('android.media.audio.common.types-V2-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
+        .replace_needed('android.media.audio.common.types-V4-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
+        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so')
+        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_prebuilt.so')
 
     (
         'vendor/lib64/soundfx/libbundleaidl.so',
