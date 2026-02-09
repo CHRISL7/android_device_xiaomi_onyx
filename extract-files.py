@@ -149,8 +149,13 @@ blob_fixups: blob_fixups_user_type = {
     (
         'odm/etc/camera/enhance_motiontuning.xml',
         'odm/etc/camera/motiontuning.xml'
-    ): blob_fixup()
-        .regex_replace('xml=version', 'xml version'),
+    ): blob_fixup().regex_replace('xml=version', 'xml version'),
+
+    'vendor/etc/clstc_config_library.xml': blob_fixup()
+        .regex_replace(r'<library>\s*<name>libdolbyclstc[\s\S]*?</library>', ''),
+
+    'vendor/etc/sensors/hals.conf': blob_fixup()
+        .regex_replace('.*vl53l8.*\n?', ''),
 
     (
         'odm/lib64/libAncHumanPreviewBokeh.so',
@@ -172,17 +177,76 @@ blob_fixups: blob_fixups_user_type = {
         'odm/lib64/libaudioroute_ext.so',
         'vendor/lib64/libagm.so',
         'vendor/lib64/libar-pal.so',
+        'vendor/lib64/libfmpal',
+        'vendor/lib64/libhfp_pal',
         'vendor/lib64/libmcs.so',
         'vendor/lib64/libmikaraoke.so',
         'vendor/lib64/libtiantongpal.so'
-    ): blob_fixup()
-        .replace_needed(
-            'libaudioroute.so',
-            'libaudioroute-v34.so'
-    ),
+    ): blob_fixup().replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
 
     (
+        'vendor/lib64/hw/android.hardware.bluetooth.audio_sw.so',
+        'vendor/lib64/hw/libaudioeffecthal.qti.so',
+        'vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so',
+        'vendor/lib64/soundfx/libdownmixaidl.so',
+        'vendor/lib64/soundfx/libdynamicsprocessingaidl.so',
+        'vendor/lib64/soundfx/libloudnessenhanceraidl.so',
+        'vendor/lib64/soundfx/libqcompostprocbundle.so',
+        'vendor/lib64/soundfx/libqcomvisualizer.so',
+        'vendor/lib64/soundfx/libqcomvoiceprocessing.so',
+        'vendor/lib64/soundfx/libreverbaidl.so',
+        'vendor/lib64/soundfx/libvisualizeraidl.so',
+        'vendor/lib64/soundfx/libvolumelistener.so'
+    ): blob_fixup().replace_needed('android.media.audio.common.types-V6-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
+
+    (
+        'vendor/lib64/libmisoundfx_aidl_ext.so',
+        'vendor/lib64/soundfx/libbundleaidl.so',
+        'vendor/lib64/soundfx/libdlbvolaidl.so',
+        'vendor/lib64/soundfx/libhwdapaidl.so',
+        'vendor/lib64/soundfx/libmiwndnsprocessingaidl.so',
+        'vendor/lib64/soundfx/libswgamedapaidl.so'
+    ): blob_fixup()
+        .replace_needed('android.hardware.audio.effect-V3-ndk.so', 'android.hardware.audio.effect-V2-ndk.so')
+        .replace_needed('android.media.audio.common.types-V2-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
+        .replace_needed('android.media.audio.common.types-V4-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
+        .replace_needed('android.media.audio.common.types-V6-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
+        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so')
+        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_prebuilt.so'),
+
+    'vendor/lib64/libaudioserviceexampleimpl.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V6-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
+        .replace_needed('android.hardware.bluetooth.audio-impl.so', 'android.hardware.bluetooth.audio-impl_prebuilt.so')
+        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_prebuilt.so')
+        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
+
+    'vendor/lib64/android.hardware.bluetooth.audio-impl_prebuilt.so': blob_fixup()
+        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_prebuilt.so'),
+
+    'vendor/lib64/libwfdmmsrc_proprietary.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V2-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
+
+    (
+        'odm/lib64/camera/plugins/com.xiaomi.plugin.gainmap.so',
+        'odm/lib64/camera/plugins/com.xiaomi.plugin.jpegrAggr.so'
+    ): blob_fixup().replace_needed('libultrahdr.so', 'libultrahdr_prebuilt.so'),
+
+    'vendor/lib64/libultrahdr_prebuilt.so': blob_fixup()
+        .replace_needed('libjpegdecoder.so', 'libjpegdecoder_prebuilt.so')
+        .replace_needed('libjpegencoder.so', 'libjpegencoder_prebuilt.so'),
+
+    'vendor/lib64/libcameraopt.so': blob_fixup().add_needed('libprocessgroup_shim.so'),
+
+    'vendor/lib64/vendor.libdpmframework.so': blob_fixup().add_needed('libhidlbase_shim.so'),
+
+    'vendor/lib64/libqcodec2_core.so': blob_fixup()
+        .add_needed('libcodec2_shim.so')
+        .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V6-ndk.so'),
+
+    # NDK version updates (Common Fixups)
+    (
         'odm/bin/hw/vendor.xiaomi.hw.touchfeature-service',
+        'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl',
         'odm/lib64/hw/displayfeature.default.so',
         'odm/lib64/libadaptivehdr.so',
         'odm/lib64/libcolortempmode.so',
@@ -197,144 +261,28 @@ blob_fixups: blob_fixups_user_type = {
         'odm/lib64/libsre.so',
         'odm/lib64/libtruetone.so',
         'odm/lib64/libvideomode.so',
-        'vendor/lib64/hw/camera.qcom.so',
-        'vendor/lib64/libgnss.so'
-    ): blob_fixup()
-        .replace_needed(
-            'android.hardware.sensors-V2-ndk.so',
-            'android.hardware.sensors-V3-ndk.so'
-    ),
-
-    (
-        'odm/lib64/camera/plugins/com.xiaomi.plugin.gainmap.so',
-        'odm/lib64/camera/plugins/com.xiaomi.plugin.jpegrAggr.so'
-    ): blob_fixup()
-        .replace_needed(
-            'libultrahdr.so',
-            'libultrahdr_prebuilt.so'
-    ),
-
-    'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl': blob_fixup()
-        .replace_needed(
-            'android.hardware.graphics.common-V5-ndk.so',
-            'android.hardware.graphics.common-V6-ndk.so'
-        )
-        .replace_needed(
-            'android.hardware.sensors-V2-ndk.so',
-            'android.hardware.sensors-V3-ndk.so'
-    ),
-
-    'vendor/etc/clstc_config_library.xml': blob_fixup()
-        .regex_replace(r'<library>\s*<name>libdolbyclstc[\s\S]*?</library>', ''),
-
-    'vendor/etc/sensors/hals.conf': blob_fixup()
-        .regex_replace('.*vl53l8.*\n?', ''),
-
-    (
+        'vendor/bin/hw/vendor.qti.hardware.display.composer-service',
         'vendor/lib64/camera/components/com.qti.node.dewarp.so',
+        'vendor/lib64/hw/camera.qcom.so',
         'vendor/lib64/hw/com.qti.chi.override.so',
+        'vendor/lib64/libcamera2ndk_vendor.so',
         'vendor/lib64/libcamximageformatutils.so',
         'vendor/lib64/libchifeature2.so',
-        'vendor/lib64/libqvrservice.so',
-        'vendor/lib64/vendor.qti.hardware.camera.offlinecamera-service-impl.so'
+        'vendor/lib64/libgnss.so',
+        'vendor/lib64/vendor.qti.hardware.camera.offlinecamera-service-impl.so',
+        'vendor/lib64/vendor.xiaomi.hardware.camera.injection-client.so',
+        'vendor/lib64/vendor.xiaomi.hardware.camera.injection-service.so',
+        'vendor/lib64/vendor.xiaomi.hardware.camera.injection-V1-ndk.so'
     ): blob_fixup()
-        .replace_needed(
-            'android.hardware.graphics.allocator-V1-ndk.so',
-            'android.hardware.graphics.allocator-V2-ndk.so'
-    ),
+        .replace_needed('android.frameworks.cameraservice.device-V2-ndk.so', 'android.frameworks.cameraservice.device-V3-ndk.so')
+        .replace_needed('android.frameworks.cameraservice.service-V2-ndk.so', 'android.frameworks.cameraservice.service-V3-ndk.so')
+        .replace_needed('android.hardware.camera.device-V1-ndk.so', 'android.hardware.camera.device-V2-ndk.so')
+        .replace_needed('android.hardware.common-V2-ndk_platform.so', 'android.hardware.common-V2-ndk.so')
+        .replace_needed('android.hardware.graphics.allocator-V1-ndk.so', 'android.hardware.graphics.allocator-V2-ndk.so')
+        .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V6-ndk.so')
+        .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so')
+        .replace_needed('vendor.qti.hardware.display.composer3-V1-ndk.so', 'vendor.qti.hardware.display.composer3-V3-ndk.so'),
 
-    (
-        'vendor/lib64/hw/android.hardware.bluetooth.audio_sw.so',
-        'vendor/lib64/hw/libaudioeffecthal.qti.so',
-        'vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so',
-        'vendor/lib64/libaudioserviceexampleimpl.so',
-        'vendor/lib64/soundfx/libbundleaidl.so',
-        'vendor/lib64/soundfx/libdownmixaidl.so',
-        'vendor/lib64/soundfx/libdynamicsprocessingaidl.so',
-        'vendor/lib64/soundfx/libloudnessenhanceraidl.so',
-        'vendor/lib64/soundfx/libqcompostprocbundle.so',
-        'vendor/lib64/soundfx/libqcomvisualizer.so',
-        'vendor/lib64/soundfx/libqcomvoiceprocessing.so',
-        'vendor/lib64/soundfx/libreverbaidl.so',
-        'vendor/lib64/soundfx/libvisualizeraidl.so',
-        'vendor/lib64/soundfx/libvolumelistener.so'
-    ): blob_fixup()
-        .replace_needed(
-            'android.media.audio.common.types-V6-ndk.so',
-            'android.media.audio.common.types-V3-ndk.so'
-    ),
-
-    (
-        'vendor/lib64/libmisoundfx_aidl_ext.so',
-        'vendor/lib64/soundfx/libbundleaidl.so',
-        'vendor/lib64/soundfx/libdlbvolaidl.so',
-        'vendor/lib64/soundfx/libhwdapaidl.so',
-        'vendor/lib64/soundfx/libmiwndnsprocessingaidl.so',
-        'vendor/lib64/soundfx/libswgamedapaidl.so'
-    ): blob_fixup()
-        .replace_needed('android.hardware.audio.effect-V3-ndk.so', 'android.hardware.audio.effect-V2-ndk.so')
-        .replace_needed('android.media.audio.common.types-V2-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
-        .replace_needed('android.media.audio.common.types-V4-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
-        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so')
-        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_prebuilt.so')
-
-    (
-        'vendor/lib64/soundfx/libbundleaidl.so',
-        'vendor/lib64/libaudioserviceexampleimpl.so',
-    ): blob_fixup()
-        .replace_needed(
-            'libaudio_aidl_conversion_common_ndk.so',
-            'libaudio_aidl_conversion_common_ndk_prebuilt.so'
-    ),
-
-    'vendor/lib64/libaudioserviceexampleimpl.so': blob_fixup()
-        .replace_needed(
-            'android.hardware.bluetooth.audio-impl.so',
-            'android.hardware.bluetooth.audio-impl_prebuilt.so'
-        )
-        .replace_needed(
-            'libbluetooth_audio_session_aidl.so',
-            'libbluetooth_audio_session_aidl_prebuilt.so'
-        )
-        .replace_needed(
-            'libaudio_aidl_conversion_common_ndk.so',
-            'libaudio_aidl_conversion_common_ndk_prebuilt.so'
-    ),
-
-    'vendor/lib64/android.hardware.bluetooth.audio-impl_prebuilt.so': blob_fixup()
-        .replace_needed(
-            'libbluetooth_audio_session_aidl.so',
-            'libbluetooth_audio_session_aidl_prebuilt.so'
-    ),
-
-    'vendor/lib64/libultrahdr_prebuilt.so': blob_fixup()
-        .replace_needed(
-            'libjpegdecoder.so',
-            'libjpegdecoder_prebuilt.so'
-        )
-        .replace_needed(
-            'libjpegencoder.so',
-            'libjpegencoder_prebuilt.so'
-    ),
-
-    'vendor/lib64/libcameraopt.so': blob_fixup()
-        .add_needed('libprocessgroup_shim.so'),
-
-    'vendor/lib64/libqcodec2_core.so': blob_fixup()
-        .add_needed('libcodec2_shim.so')
-        .replace_needed(
-            'android.hardware.graphics.common-V5-ndk.so',
-            'android.hardware.graphics.common-V6-ndk.so'
-    ),
-
-    'vendor/lib64/libwfdmmsrc_proprietary.so': blob_fixup()
-        .replace_needed(
-            'android.media.audio.common.types-V2-ndk.so',
-            'android.media.audio.common.types-V3-ndk.so'
-    ),
-
-    'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
-        .add_needed('libhidlbase_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
