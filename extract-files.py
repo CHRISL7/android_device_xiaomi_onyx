@@ -187,7 +187,7 @@ blob_fixups: blob_fixups_user_type = {
     (
         'vendor/lib64/hw/android.hardware.bluetooth.audio_sw.so',
         'vendor/lib64/hw/libaudioeffecthal.qti.so',
-        'vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so',
+        'vendor/lib64/libaudio_aidl_conversion_common_ndk_onyx.so',
         'vendor/lib64/soundfx/libdownmixaidl.so',
         'vendor/lib64/soundfx/libdynamicsprocessingaidl.so',
         'vendor/lib64/soundfx/libloudnessenhanceraidl.so',
@@ -211,17 +211,17 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.media.audio.common.types-V2-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
         .replace_needed('android.media.audio.common.types-V4-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
         .replace_needed('android.media.audio.common.types-V6-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
-        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so')
-        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_prebuilt.so'),
+        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_onyx.so')
+        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_onyx.so'),
 
     'vendor/lib64/libaudioserviceexampleimpl.so': blob_fixup()
         .replace_needed('android.media.audio.common.types-V6-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
-        .replace_needed('android.hardware.bluetooth.audio-impl.so', 'android.hardware.bluetooth.audio-impl_prebuilt.so')
-        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_prebuilt.so')
-        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
+        .replace_needed('android.hardware.bluetooth.audio-impl.so', 'android.hardware.bluetooth.audio-impl_onyx.so')
+        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_onyx.so')
+        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_onyx.so'),
 
-    'vendor/lib64/android.hardware.bluetooth.audio-impl_prebuilt.so': blob_fixup()
-        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_prebuilt.so'),
+    'vendor/lib64/android.hardware.bluetooth.audio-impl_onyx.so': blob_fixup()
+        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_onyx.so'),
 
     'vendor/lib64/libwfdmmsrc_proprietary.so': blob_fixup()
         .replace_needed('android.media.audio.common.types-V2-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
@@ -229,11 +229,11 @@ blob_fixups: blob_fixups_user_type = {
     (
         'odm/lib64/camera/plugins/com.xiaomi.plugin.gainmap.so',
         'odm/lib64/camera/plugins/com.xiaomi.plugin.jpegrAggr.so'
-    ): blob_fixup().replace_needed('libultrahdr.so', 'libultrahdr_prebuilt.so'),
+    ): blob_fixup().replace_needed('libultrahdr.so', 'libultrahdr_onyx.so'),
 
-    'vendor/lib64/libultrahdr_prebuilt.so': blob_fixup()
-        .replace_needed('libjpegdecoder.so', 'libjpegdecoder_prebuilt.so')
-        .replace_needed('libjpegencoder.so', 'libjpegencoder_prebuilt.so'),
+    'vendor/lib64/libultrahdr_onyx.so': blob_fixup()
+        .replace_needed('libjpegdecoder.so', 'libjpegdecoder_onyx.so')
+        .replace_needed('libjpegencoder.so', 'libjpegencoder_onyx.so'),
 
     'vendor/lib64/libcameraopt.so': blob_fixup().add_needed('libprocessgroup_shim.so'),
 
