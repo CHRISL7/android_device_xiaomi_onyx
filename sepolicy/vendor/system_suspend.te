@@ -1,1 +1,0 @@
-allow system_suspend_server vendor_hal_keymint_strongbox:binder transfer;

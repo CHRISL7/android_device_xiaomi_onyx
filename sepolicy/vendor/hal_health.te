@@ -1,4 +1,2 @@
 allow hal_health vendor_sysfs_xm_power:dir search;
 allow hal_health vendor_sysfs_xm_power:file rw_file_perms;
-allow hal_health_default vendor_sysfs_xm_power:dir search;
-allow hal_health_default vendor_sysfs_xm_power:file r_file_perms;
