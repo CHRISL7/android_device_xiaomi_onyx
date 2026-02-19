@@ -155,9 +155,10 @@ KERNEL_PREBUILT_DIR := device/xiaomi/onyx-kernel
 
 # Keymint
 PRODUCT_PACKAGES += \
-    android.hardware.authsecret-service.nxp \
-    android.hardware.security.keymint3-service.strongbox.nxp \
-    android.hardware.weaver-service.nxp
+    android.hardware.authsecret-service.nxp-qti \
+    android.hardware.security.keymint-service.strongbox-nxp \
+    android.hardware.weaver-service.nxp-qti \
+    android.hardware.weaver-service.nxp.xml
 
 PRODUCT_PACKAGES += \
     android.hardware.hardware_keystore_V3.xml
