@@ -129,9 +129,7 @@ PRODUCT_PACKAGES += \
     xiaomi.system.hypsys.common-service
 
 # Health
-PRODUCT_PACKAGES += \
-    android.hardware.health-service.qti \
-    android.hardware.health-service.qti_recovery
+$(call inherit-product, vendor/qcom/opensource/healthd-ext/health-vendor-product.mk)
 
 # Init
 PRODUCT_PACKAGES += \
